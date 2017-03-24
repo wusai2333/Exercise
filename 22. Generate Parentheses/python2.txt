@@ -1,0 +1,26 @@
+class Solution(object):
+    def generateParenthesis(self, n, open = 0):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        if n == 0: return[')' * open]
+        if open == 0:
+            return ['(' + x for x in self.generateParenthesis(n - 1, 1)]
+        else:
+            return [')' + x for x in self.generateParenthesis(n, open - 1)] + \
+		   ['(' + x for x in self.generateParenthesis(n - 1, open + 1)]
+            
+
+modified:
+class Solution(object):
+    def generateParenthesis(self, n, open = 0):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        if n > 0 <= open:
+           return ['(' + x for x in self.generateParenthesis(n - 1, open + 1)] + \
+                  [')' + x for x in self.generateParenthesis(n, open - 1)]
+        return [')' * open] * (not n)
+            

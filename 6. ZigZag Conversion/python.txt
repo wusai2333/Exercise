@@ -1,0 +1,17 @@
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if (numRows <= 1): return s
+        result = ""
+        cycle, slen = 2*numRows - 2, len(s) 
+        for i in range(numRows):
+            for j in range(i, slen, cycle):
+                result +=s[j]
+                secondj = (j-i) + cycle - i
+                if (secondj -j) % cycle  != 0 and secondj < slen:
+                    result += s[secondj]
+        return result

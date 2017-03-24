@@ -1,0 +1,22 @@
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        i, j = len(a)-1, len(b)-1
+        s = ""
+        c = 0
+        while i >= 0 or j >=0:
+            sum = c
+            sum += (ord(a[i]) - ord('0') if i>=0 else 0)
+            i -= 1
+            sum += (ord(b[j]) - ord('0') if j>=0 else 0)
+            j -= 1
+            s = chr(sum%2 + ord('0')) + s
+            c = sum/2
+        if c == 1:
+            s = '1' + s
+
+        return s
