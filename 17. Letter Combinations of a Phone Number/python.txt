@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def letterCombinations(self, digits):
         """
@@ -13,4 +14,21 @@ class Solution(object):
                 t = ans.pop(0) 
                 for s in mapping[x]:
                     ans.append(t+s)
+=======
+class Solution(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        if not digits: return []
+        mapping = ['0', '1', "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        ans = [""]
+        for i in range(len(digits)):
+            x = int(digits[i])
+            while len(ans[0]) == i :
+                t = ans.pop(0) 
+                for s in mapping[x]:
+                    ans.append(t+s)
+>>>>>>> origin/master
         return ans

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def letterCombinations(self, digits):
         """
@@ -10,4 +11,18 @@ class Solution(object):
             return list(mapping[int(digits[0])])
         prev = self.letterCombinations(digits[:-1])
         additional = mapping[int(digits[-1])]
+=======
+class Solution(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        if not digits: return []
+        mapping = ['0', '1', "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        if len(digits) == 1:
+            return list(mapping[int(digits[0])])
+        prev = self.letterCombinations(digits[:-1])
+        additional = mapping[int(digits[-1])]
+>>>>>>> origin/master
         return [s + c for s in prev for c in additional]

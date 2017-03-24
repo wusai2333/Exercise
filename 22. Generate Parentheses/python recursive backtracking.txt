@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def generateParenthesis(self, n):
         """
@@ -15,4 +16,23 @@ class Solution(object):
                 backtrack(list, str+')', open, close + 1, n)
         
         backtrack(res, "", 0, 0, n)
+=======
+class Solution(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        res = []
+        def backtrack(list, str, open, close, n):
+            if len(str) == n * 2: 
+                list += str,
+                return
+            if open < n:
+                backtrack(list, str+'(', open + 1, close, n)
+            if close < open:
+                backtrack(list, str+')', open, close + 1, n)
+        
+        backtrack(res, "", 0, 0, n)
+>>>>>>> origin/master
         return res

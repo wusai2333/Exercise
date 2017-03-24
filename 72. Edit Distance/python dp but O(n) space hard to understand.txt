@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def minDistance(self, word1, word2):
         """
@@ -24,4 +25,32 @@ class Solution(object):
                 pre = temp
         return cur[m-1]
 
+=======
+class Solution(object):
+    def minDistance(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: int
+        """
+        m = len(word1) + 1
+        n = len(word2) + 1
+        cur = [0] * m
+        
+        for i in range(1, m):
+            cur[i] = i
+        
+        for j in range(1, n):
+            pre = cur[0]
+            cur[0] = j
+            for i in range(1, m):
+                temp = cur[i]
+                if word1[i - 1] == word2[j - 1]:
+                    cur[i] = pre
+                else:
+                    cur[i] = min(pre + 1, cur[i] + 1, cur[i-1] + 1)
+                pre = temp
+        return cur[m-1]
+
+>>>>>>> origin/master
 Well, you may have noticed that each time when we update dp[i][j], we only need dp[i - 1][j - 1], dp[i][j - 1], dp[i - 1][j]. In fact, we need not maintain the full m*n matrix. Instead, maintaing one column is enough. The code can be optimized to O(m) or O(n) space, depending on whether you maintain a row or a column of the original matrix.

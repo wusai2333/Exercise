@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def lengthOfLastWord(self, s):
         """
@@ -6,4 +7,14 @@ class Solution(object):
         """
         if not s or len(s.strip()) == 0: return 0
         l = s.split()
+=======
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if not s or len(s.strip()) == 0: return 0
+        l = s.split()
+>>>>>>> origin/master
         return len(l[-1])

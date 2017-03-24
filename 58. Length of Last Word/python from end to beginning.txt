@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object)
     def lengthOfLastWord(self, s)
         
@@ -15,4 +16,23 @@ class Solution(object)
 
             
         return length
+=======
+class Solution(object)
+    def lengthOfLastWord(self, s)
+        
+        type s str
+        rtype int
+        
+        length = 0
+        l = len(s)-1
+        while l  0 and s[l] == ' '
+            l -= 1
+        for i in range(l, -1, -1)
+            if s[i] == ' '
+                break
+            length += 1
+
+            
+        return length
+>>>>>>> origin/master
             

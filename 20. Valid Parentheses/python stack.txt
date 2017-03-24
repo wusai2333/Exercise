@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isValid(self, s):
         """
@@ -16,4 +17,24 @@ class Solution(object):
                 stack.pop()
             else:
                 return False
+=======
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        for i in range(len(s)):
+            if s[i] == '(' or s[i] == '[' or s[i] == '{':
+                stack.append(s[i])
+            elif stack and stack[-1] == '(' and s[i] == ')':
+                stack.pop()
+            elif stack and stack[-1] == '[' and s[i] == ']':
+                stack.pop()
+            elif stack and stack[-1] == '{' and s[i] == '}':
+                stack.pop()
+            else:
+                return False
+>>>>>>> origin/master
         return len(stack) == 0

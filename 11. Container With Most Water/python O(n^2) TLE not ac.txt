@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def maxArea(self, height):
         """
@@ -12,4 +13,20 @@ class Solution(object):
                     maxcontainer = max(maxcontainer, volume)
         return maxcontainer
             
+=======
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        maxcontainer = 0
+        n = len(height)
+        for i in range(n):
+                for j in range(i):
+                    volume = (i-j)*min(height[i], height[j])
+                    maxcontainer = max(maxcontainer, volume)
+        return maxcontainer
+            
+>>>>>>> origin/master
             

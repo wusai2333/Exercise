@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def myPow(self, x, n):
         """
@@ -16,4 +17,24 @@ class Solution(object):
         for i in range(32):
             if n & (1<<i):
                 result *= tbl[i]
+=======
+class Solution(object):
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        if n==0: return 1
+        
+        if n < 0: x = 1/x; n = -n
+        tbl = [0]*32
+        result = 1
+        tbl[0] = x
+        for i in range(1, 32):
+            tbl[i] = tbl[i-1] * tbl[i-1]
+        for i in range(32):
+            if n & (1<<i):
+                result *= tbl[i]
+>>>>>>> origin/master
         return result

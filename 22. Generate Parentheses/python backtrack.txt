@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def generateParenthesis(self, n):
         """
@@ -13,4 +14,21 @@ class Solution(object):
         res = []
         addingPar(res, "", n, 0)
         return res
+=======
+class Solution(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        def addingPar(res, par, n, m):
+            if n==0 and m==0: res += par, ; return
+            if m > 0: 
+                addingPar(res, par+')', n, m-1)
+            if n > 0:
+                addingPar(res, par+'(', n-1, m+1)
+        res = []
+        addingPar(res, "", n, 0)
+        return res
+>>>>>>> origin/master
         
