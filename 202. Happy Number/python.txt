@@ -1,0 +1,29 @@
+class Solution(object):
+   
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        slow ,fast = n ,n
+        slow = self.digitSquareSum(slow)
+        fast = self.digitSquareSum(fast)
+        fast = self.digitSquareSum(fast)
+        while slow != fast:
+            slow = self.digitSquareSum(slow)
+            fast = self.digitSquareSum(fast)
+            fast = self.digitSquareSum(fast)
+        if slow == 1:
+            return True
+        else: return False
+        
+    def digitSquareSum(self, n):
+        sum = 0
+        while(n):
+            tmp = n%10
+            sum += tmp*tmp
+            n /= 10
+        return sum
+        
+        
+        

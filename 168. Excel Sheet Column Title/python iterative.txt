@@ -1,0 +1,12 @@
+class Solution(object):
+    def convertToTitle(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        str = ""
+        while n > 0:
+            str = chr((n-1)%26 + 65) + str
+            n = (n-1)//26
+            
+        return str

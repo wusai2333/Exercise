@@ -1,0 +1,15 @@
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        d1 = [[] for _ in range(256)]
+        d2 = [[] for _ in range(256)]
+        for i, c in enumerate(s):
+            d1[ord(c)].append(i)
+        for i, c in enumerate(t):
+            d2[ord(c)].append(i)
+        return sorted(d1) == sorted(d2)
+        

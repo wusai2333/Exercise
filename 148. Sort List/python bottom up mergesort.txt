@@ -1,0 +1,82 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def sortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        def count_size(node):
+            n = 0
+            while node != None:
+                node = node.next
+                n += 1
+            return n
+        
+        block_size = 1
+        n = count_size(head)
+        iter, i, a, b = 0, 0, 0, 0
+        virtual_head = ListNode(0)
+        last, it, A, B, tmp = None, None, None, None, None
+        virtual_head.next = head
+        while block_size < n:
+            iter = 0
+            last = virtual_head
+            it = virtual_head.next
+            while iter < n:
+                a = min(n - iter, block_size)
+                b = min(n - iter - a, block_size)
+                A = it
+                if b != 0:
+                    for i in range(a-1): it = it.next
+                    B = it.next
+                    it.next = None
+                    it = B
+                    for i in range(b-1): it = it.next
+                    tmp = it.next
+                    it.next = None
+                    it = tmp
+                while A or B:
+                    if B == None or A != None and A.val <= B.val:
+                        last.next = A
+                        last = last.next
+                        A = A.next
+                    else:
+                        last.next = B
+                        last = last.next
+                        B = B.next
+                last.next = None
+                iter += a+b
+            block_size <<= 1
+        return virtual_head.next
+
+Nice problem. I use a non-recurisve way to write merge sort.
+For example, the size of ListNode is 8,
+
+Round #1 block_size = 1
+
+(a1, a2), (a3, a4), (a5, a6), (a7, a8)
+
+Compare a1 with a2, a3 with a4 ...
+
+Round #2 block_size = 2
+
+(a1, a2, a3, a4), (a5, a6, a7, a8)
+
+merge two sorted arrays (a1, a2) and (a3, a4), then merge tow sorted arrays(a5, a6) and (a7, a8)
+
+Round #3 block_size = 4
+
+(a1, a2, a3, a4, a5, a6, a7, a8)
+
+merge two sorted arrays (a1, a2, a3, a4), and (a5, a6, a7, a8)
+
+No need for round #4 cause block_size = 8 >= n = 8
+
+When merge two sorted lists, the lengths of two lists are a and b. when b != 0 we need to find the begin of the next two lists to be sorted. A||B means that we still need to merge them while list A or list B is not NULL. If A == NULL ,the list A has already added to the new list.
+
+a and b suppose to be blocksize, but it may do not have enough numbers to do. for example n = 10, blocksize = 4. first a = 4, b = 4, then iter = 8. next round, a should be 4, but only remain n - iter = 2 numbers. Therefore a = 2. Use the same way to calculate b.

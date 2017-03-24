@@ -1,0 +1,26 @@
+class Solution(object):
+    def findRepeatedDnaSequences(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        words = set()
+        doublewords = set()
+        rv = []
+        map = [0]*26
+        map[ord('C') - ord('A')] = 1
+        map[ord('G') - ord('A')] = 2
+        map[ord('T') - ord('A')] = 3
+        
+        for i in range(len(s)-9):
+            v = 0
+            for j in range(i, i + 10):
+                v <<= 2
+                v |= map[ord(s[j]) - ord('A')]
+            if v in words and v not in doublewords:
+                doublewords.add(v)
+                rv.append(s[i:i+10])
+            else:
+                words.add(v)
+        return rv
+        
