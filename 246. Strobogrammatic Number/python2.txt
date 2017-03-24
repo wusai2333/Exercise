@@ -1,0 +1,15 @@
+class Solution(object):
+    def isStrobogrammatic(self, num):
+        """
+        :type num: str
+        :rtype: bool
+        """
+        deque = collections.deque(map(int, list(num)))
+        while len(deque) >= 2:
+            l, r = deque.popleft(), deque.pop()
+            for i in [2, 3, 4, 5, 7]:
+                if i in[l, r]:
+                    return False
+            if (l, r) in [(6,6), (9,9)] or (l != r and (l, r) not in [(6,9), (9, 6)]):
+                return False
+        return not deque or deque.pop() in[0, 1, 8]

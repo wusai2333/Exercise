@@ -1,0 +1,53 @@
+class Solution(object):
+    def maximumGap(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums or len(nums) < 2: return 0
+        mini, maxi = nums[0], nums[0]
+        for num in nums:
+            mini = min(num, mini)
+            maxi = max(num, maxi)
+        # the minimum possible gap, ceiling of the integer division   
+        gap = int(math.ceil(float(maxi - mini) / (len(nums) - 1)))
+        bucketMIN = [sys.maxsize]*(len(nums)-1) # store the min value in that bucket
+        bucketMAX = [-sys.maxsize-1]*(len(nums)-1) # store the max value in that bucket
+        #put numbers into buckets
+        for num in nums:
+            if num == mini or num == maxi: continue
+            idx = (num - mini) / gap # index of the right position in the buckets
+            bucketMIN[idx] = min(num, bucketMIN[idx])
+            bucketMAX[idx] = max(num, bucketMAX[idx])
+        # scan the bucket for the max gap
+        maxGap = -sys.maxsize-1
+        previous = mini
+        for i in range(len(nums)-1):
+            if bucketMIN[i] == sys.maxsize and bucketMAX[i] == -sys.maxsize-1:
+                continue # empty bucket
+            # minvalue minus the previous value is current gap
+            maxGap = max(maxGap, bucketMIN[i] - previous)
+            # update the previous bucket value
+            previous = bucketMAX[i]
+        # update the final max gap
+        maxGap = max(maxGap, maxi - previous)
+        return maxGap
+
+Suppose there are N elements in the array, the min value is min and the max value is max. Then the maximum gap will be no smaller than ceiling[(max - min ) / (N - 1)].
+
+Let gap = ceiling[(max - min ) / (N - 1)]. We divide all numbers in the array into n-1 buckets, where k-th bucket contains all numbers in [min + (k-1)gap, min + k*gap). Since there are n-2 numbers that are not equal min or max and there are n-1 buckets, at least one of the buckets are empty. We only need to store the largest number and the smallest number in each bucket.
+
+After we put all the numbers into the buckets. We can scan the buckets sequentially and get the max gap.
+
+Thanks for asking this question.
+
+In this case, 1 and 3 are the min and max. When we put number into the buckets, we'll skip the min and max.
+
+Please see the code blow:
+
+if (i == min || i == max)
+continue;
+        
+            
+            
+        

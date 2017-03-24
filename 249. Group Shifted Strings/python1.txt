@@ -1,0 +1,18 @@
+class Solution(object):
+    def groupStrings(self, strings):
+        """
+        :type strings: List[str]
+        :rtype: List[List[str]]
+        """
+        dic= {}
+        for s in strings:
+            d = ord(s[0]) - ord('a')
+            key = tuple((ord(c) - d) % 26 for c in s)
+            dic[key] = dic[key] + [s] if key in dic else [s]
+        
+        ans = []
+        for key in dic:
+            dic[key].sort()
+            ans.append(dic[key])
+        return ans
+        

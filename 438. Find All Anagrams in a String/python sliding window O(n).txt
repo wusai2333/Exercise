@@ -1,0 +1,33 @@
+class Solution(object):
+    def findAnagrams(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: List[int]
+        """
+        list = []
+        if not s: return list
+        hash = [0] * 256
+        for c in p:
+            hash[ord(c)] += 1
+        
+        left, right, count = 0, 0 ,len(p)
+        while right < len(s):
+            if hash[ord(s[right])] >= 1:
+                count -= 1
+            hash[ord(s[right])] -= 1
+            right += 1
+            
+            if count == 0: 
+                list.append(left)
+                
+            if right - left == len(p):
+                if hash[ord(s[left])] >= 0:
+                    count += 1
+                hash[ord(s[left])] += 1
+                left += 1
+        
+        return list
+
+
+what a genius method by @NathanNi

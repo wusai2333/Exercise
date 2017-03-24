@@ -1,0 +1,39 @@
+Because buy and sell prices may not be the same, when k>len/2, that means we can do as many transactions as we want. So, in case k>len/2, this problem is same to Best Time to Buy and Sell Stock III.
+
+t[i][j] = Math.max(t[i][j - 1], prices[j] + tmpMax) gives us the maximum price when we sell at this price;
+tmpMax = Math.max(tmpMax, t[i - 1][j] - prices[j]) gives us the value when we buy at this price and leave this value for prices[j+1].
+
+Actually,
+tmpMax = Math.max(tmpMax, t[i - 1][j] - prices[j]); - this is kind of misleading
+should be
+tmpMax = Math.max(tmpMax, t[i - 1][j-1] - prices[j]); - by changing to this, it is still acceptable, and easy to understand.
+
+tmpMax means the maximum profit of just doing at most i-1 transactions, using at most first j-1 prices, and buying the stock at price[j] - this is used for the next loop.
+
+class Solution(object):
+    def maxProfit(self, k, prices):
+        """
+        :type k: int
+        :type prices: List[int]
+        :rtype: int
+        """
+        l = len(prices)
+        if not prices or not k: return 0
+        if k >= l/2: return self.quickSolve(k, prices)
+        t = [[0] * l for _ in range(k + 1)]
+        for i in range(1, k+1):
+            tmpMax = - prices[0]
+            for j in range(1,l):
+                t[i][j] = max(t[i][j - 1], prices[j] + tmpMax)
+                tmpMax = max(tmpMax, t[i - 1][j - 1] - prices[j])
+        return t[k][l - 1]
+        
+    def quickSolve(self, k, prices):
+        l = len(prices)
+        profit = 0
+        for i in range(1,l):
+            if prices[i] > prices[i-1]:
+                profit += prices[i] - prices[i - 1]
+        return profit
+                
+        

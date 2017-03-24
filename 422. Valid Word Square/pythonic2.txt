@@ -1,0 +1,10 @@
+from itertools import izip_longest
+class Solution(object):
+    def validWordSquare(self, words):
+        """
+        :type words: List[str]
+        :rtype: bool
+        """
+        newmatrix = map(''.join, izip_longest(*words, fillvalue = ""))
+        return newmatrix == words
+        

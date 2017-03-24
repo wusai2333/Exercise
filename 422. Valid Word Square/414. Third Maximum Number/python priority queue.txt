@@ -1,0 +1,20 @@
+from Queue import PriorityQueue
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        pq = PriorityQueue(4)
+        s = set()
+        for num in nums:
+            if num not in s:
+                s.add(num)
+                pq.put(num)
+                if pq.qsize() > 3:
+                    pq.get()
+        if pq.qsize() == 2:
+            pq.get()
+        return pq.get()
+        
+                

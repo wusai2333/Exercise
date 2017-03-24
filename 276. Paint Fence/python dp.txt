@@ -1,0 +1,16 @@
+class Solution(object):
+    def numWays(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: int
+        """
+        if n == 0: return 0
+        if n == 1: return k
+        differentColors = k*(k - 1)
+        sameColors = k
+        for i in range(2, n):
+            sameColors, differentColors = differentColors, (differentColors + sameColors) * (k - 1)
+        return sameColors + differentColors
+            s
+            

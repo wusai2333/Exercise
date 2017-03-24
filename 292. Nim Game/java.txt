@@ -1,0 +1,10 @@
+public class Solution {
+    public boolean canWinNim(int n) {
+        if(n <= 0)
+            throw new IllegalArgumentException();
+        Boolean[] res = new Boolean[n + 1];
+        res[0] = true;
+        res[0] = true;
+        
+    }
+}

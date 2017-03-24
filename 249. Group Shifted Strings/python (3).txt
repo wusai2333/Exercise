@@ -1,0 +1,22 @@
+class Solution(object):
+    def groupStrings(self, strings):
+        """
+        :type strings: List[str]
+        :rtype: List[List[str]]
+        """
+        map = {}
+        for s in strings:
+            keylist = []
+            for i in range(1, len(s)):
+                offsetdiff = ( ord(s[i]) - ord(s[i-1]) ) % 26
+               # keylist.append(str(offsetdiff))
+                keylist.append(chr(offsetdiff + ord('a')))
+                
+            #key = ','.join(keylist)
+            key = ''.join(keylist)
+            if key in map:
+                map[key].append(s)
+            else:
+                map[key] = [s]
+        return [map[key] for key in map]
+            

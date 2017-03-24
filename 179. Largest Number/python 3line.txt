@@ -1,0 +1,8 @@
+class Solution:
+    # @param {integer[]} nums
+    # @return {string}
+    def largestNumber(self, nums):
+        if not nums: return ""
+        s_num = [str(x) for x in nums]
+        s_num.sort(cmp = lambda x, y: cmp(y + x, x + y))
+        return ''.join(s_num).lstrip('0') or '0'

@@ -1,0 +1,20 @@
+class Solution(object):
+    def getSum(self, a, b):
+        """
+        :type a: int
+        :type b: int
+        :rtype: int
+        """
+        INT_MAX = 0x7FFFFFFF
+        INT_MIN = 0x80000000
+        mask = 0x100000000
+        if a == 0:
+            return b
+        elif b == 0:
+            return a
+            
+        while b != 0:
+            carry = a & b
+            a = (a ^ b) % mask
+            b = (carry << 1) % mask
+        return a if a <= INT_MAX else ~((a % INT_MIN) ^ INT_MAX)

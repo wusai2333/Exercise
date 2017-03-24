@@ -1,0 +1,22 @@
+class Solution(object):
+    def wordPattern(self, pattern, str):
+        """
+        :type pattern: str
+        :type str: str
+        :rtype: bool
+        """
+        s = pattern
+        t = str.split()
+        dic = {}
+        if len(t)!= len(s): return False
+        
+        for i in range(len(s)):
+            c = s[i]
+            if c in dic: 
+                if dic[c] != t[i]:
+                    return False
+            else:
+                if t[i] in dic.itervalues():
+                    return False
+                dic[c] = t[i]
+        return True

@@ -1,0 +1,10 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        for x in s:
+            if s.find(x) == s.rfind(x):
+                return s.find(x)
+        return -1

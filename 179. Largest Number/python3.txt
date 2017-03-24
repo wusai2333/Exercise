@@ -1,0 +1,21 @@
+from functools import cmp_to_key
+class Solution:
+    # @param {integer[]} nums
+    # @return {string}
+    def largestNumber(self, nums):
+        if not nums: return ""
+        s_num = [str(x) for x in nums]
+        s_num.sort(key = cmp_to_key(lambda x, y: (1, -1)[x + y > y + x]))
+        return ''.join(s_num).lstrip('0') or '0'
+
+cmp() is deleted in python 3.x, so we use functools.cmp_to_key()
+
+from functools import cmp_to_key
+class Solution:
+    # @param {integer[]} nums
+    # @return {string}
+    def largestNumber(self, nums):
+        if not nums: return ""
+        s_num = [str(x) for x in nums]
+        s_num.sort(key = cmp_to_key(lambda x, y: int(y+x)-int(x+y)))
+        return ''.join(s_num).lstrip('0') or '0'

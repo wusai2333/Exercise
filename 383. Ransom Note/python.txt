@@ -1,0 +1,28 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        '''
+        return all(ransomNote.count(c) <= magazine.count(c) for c in set(ransomNote))
+        '''
+        '''
+        return all(ransomNote.count(c) <= magazine.count(c) for c in string.ascii_lowercase)
+        '''
+        
+        'proper ways'
+        'method1'
+        '''
+        c1, c2 = collections.Counter(ransomNote), collections.Counter(magazine)
+        return all (k in c2 and c2[k]>=c1[k] for k in c1)
+        '''
+        'method2'
+        s1, s2, i = sorted(ransomNote), sorted(magazine), 0
+        for c in s2:
+            if i == len(s1) or c >s1[i]:
+                break
+            if c == s1[i]:
+                i += 1
+        return i==len(s1)

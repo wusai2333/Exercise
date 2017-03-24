@@ -1,0 +1,17 @@
+public class Solution {
+    public int addDigits(int num) {
+        int next = getNext(num);
+        while(next>=10){
+            next = getNext(next);
+        }
+        return next;
+    }
+    private int getNext(int num){
+        String s = String.valueOf(num);
+        int sum = 0;
+        for(char ch : s.toCharArray()){
+            sum += (ch - '0');
+        }
+        return sum;
+    }
+}

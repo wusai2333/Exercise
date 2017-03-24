@@ -1,0 +1,9 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s = re.sub('[^0-9A-Za-z]','',s)
+        l = [x.lower() for x in s]
+        return l == list(reversed(l)) if l else True
