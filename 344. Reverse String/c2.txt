@@ -1,0 +1,12 @@
+char* reverseString(char* s) {
+    int i,j,n;
+    n = strlen(s);
+    char* tmp = (char*)malloc(sizeof(char)*(n+1));
+    
+    for(i=n-1,j=0;i>=0;i--,j++)
+        tmp[j] = s[i];
+    
+    tmp[n]='\0';
+    
+    return tmp;
+}
