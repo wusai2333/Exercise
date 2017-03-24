@@ -1,0 +1,25 @@
+# Definition for an interval.
+# class Interval(object):
+#     def __init__(self, s=0, e=0):
+#         self.start = s
+#         self.end = e
+
+class Solution(object):
+    def minMeetingRooms(self, intervals):
+        """
+        :type intervals: List[Interval]
+        :rtype: int
+        """
+        starts, ends = [], []
+        for interval in intervals:
+            starts.append(interval.start)
+            ends.append(interval.end)
+        rooms, endsItr = 0, 0
+        starts.sort()
+        ends.sort()
+        for s in starts:
+            if s < ends[endsItr]:
+                rooms += 1
+            else:
+                endsItr += 1
+        return rooms
