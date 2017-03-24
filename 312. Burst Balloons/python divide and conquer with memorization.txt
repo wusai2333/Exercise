@@ -1,0 +1,20 @@
+class Solution(object):
+    def maxCoins(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums.insert(0,1)
+        nums.append(1)
+        n = len(nums)
+        memo = [[0]*n for _ in range(n)]
+        return self.burst(memo, nums, 0, n-1)
+        
+    def burst(self, memo, nums, left, right):
+        if left + 1 == right: return 0 # only 0 and n-1 left in the balloons
+        if memo[left][right] > 0: return memo[left][right]
+        ans = 0
+        for i in range(left+1, right):
+            ans = max(ans, nums[left] * nums[i] * nums[right] + self.burst(memo, nums, left, i) + self.burst(memo, nums, i, right))
+        memo[left][right] = ans
+        return memo[left][right]

@@ -1,0 +1,18 @@
+class Solution(object):
+    def palindromePairs(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[List[int]]
+        """
+        def isPalindrome(a, b):
+            return list(a + b) == list(reversed(a + b))
+        res = []
+        for i in range(len(words)-1):
+            for j in range(i + 1, len(words)):
+                if isPalindrome(words[i], words[j]):
+                    res.append([i, j])
+                if isPalindrome(words[j], words[i]):
+                    res.append([j, i])
+        return res
+        
+        

@@ -1,0 +1,65 @@
+class Solution(object):
+    def numSquares(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n <= 0 : return 0
+        
+        # perfectSquares contain all perfect square numbers which 
+        # are smaller than or equal to n.
+        perfectSquares = []
+        # cntPerfectSquares[i - 1] = the least number of perfect 
+        # square numbers which sum to i.
+        cntPerfectSquares = [0] * n
+        # Get all the perfect square numbers which are smaller than 
+        # or equal to n.
+        for i in range(1, int(n**0.5)+1):
+            perfectSquares.append(i*i)
+            cntPerfectSquares[i*i - 1] = 1
+            
+        if perfectSquares[-1] == n:
+            return 1
+            
+        # Consider a graph which consists of number 0, 1,...,n as
+        # its nodes. Node j is connected to node i via an edge if  
+        # and only if either j = i + (a perfect square number) or 
+        # i = j + (a perfect square number). Starting from node 0, 
+        # do the breadth-first search. If we reach node n at step 
+        # m, then the least number of perfect square numbers which 
+        # sum to n is m. Here since we have already obtained the 
+        # perfect square numbers, we have actually finished the 
+        # search at step 1.
+        searchQ = collections.deque()
+        for i in perfectSquares:
+            searchQ.append(i)
+        
+        curCntPerfectSquares = 1
+        while searchQ:
+            curCntPerfectSquares += 1
+            for i in range(len(searchQ)):
+                tmp = searchQ[0]
+                # Check the neighbors of node tmp which are the sum 
+                # of tmp and a perfect square number.
+                for j in perfectSquares:
+                    if tmp + j == n:
+                        # We have reached node n.
+                        return curCntPerfectSquares
+                    elif tmp + j < n and cntPerfectSquares[tmp + j - 1] == 0:
+                        # If cntPerfectSquares[tmp + j - 1] > 0, this is not 
+                        # the first time that we visit this node and we should 
+                        # skip the node (tmp + j).
+                        cntPerfectSquares[tmp + j - 1] = curCntPerfectSquares
+                        searchQ.append(tmp + j)
+                        
+                    elif tmp + j > n:
+                        # We don't need to consider the nodes which are greater
+                        # than n.
+                        break
+                searchQ.popleft()
+        
+        return 0    
+                        
+                        
+            
+        

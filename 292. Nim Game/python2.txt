@@ -1,0 +1,14 @@
+class Solution(object):
+    def canWinNim(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        rs = [False] * 1000
+        rs[0] = True
+        rs[1] = True
+        rs[2] = True
+        i = 3
+        for i in range(1, n):
+            rs[i] = not(rs[i-1] and rs[i-2] and rs[i-3])
+        return rs[n-1]
