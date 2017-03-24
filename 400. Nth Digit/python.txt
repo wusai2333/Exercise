@@ -1,0 +1,27 @@
+from math import pow
+class Solution(object):
+    def findNthDigit(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 10 : return n
+        base, digit = 9, 1
+        while n - base*digit > 0:
+            n -= base*digit
+            base *= 10
+            digit += 1
+            
+        idx = n % digit
+        if idx == 0:
+            idx = digit
+        num = 10**(digit - 1)
+        num += n/digit - 1 if idx == digit else n/digit
+        
+        for i in range(idx, digit):
+            num /= 10
+        return num%10
+	or
+	num = str(num)
+        return int(num[idx-1])
+        

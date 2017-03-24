@@ -1,0 +1,33 @@
+class Solution(object):
+    def findRadius(self, houses, heaters):
+        """
+        :type houses: List[int]
+        :type heaters: List[int]
+        :rtype: int
+        """
+        heaters.sort()
+        result = -sys.maxsize - 1
+        
+        for house in houses:
+            index = bisect.bisect(heaters, house)
+            
+            dist1 = house - heaters[index - 1] if index - 1>=0 else sys.maxsize
+            dist2 = heaters[index] - house if index < len(heaters) else sys.maxsize
+            
+            result = max(result, min(dist1, dist2))
+        return result
+
+
+class Solution(object):
+    def findRadius(self, houses, heaters):
+        """
+        :type houses: List[int]
+        :type heaters: List[int]
+        :rtype: int
+        """
+        heaters.sort()
+        return max(min(abs(house - heater)\
+                    for i in [bisect.bisect(heaters, house)]\
+                    for heater in heaters[i-(i>0): i+1])\
+                    for house in houses)
+        

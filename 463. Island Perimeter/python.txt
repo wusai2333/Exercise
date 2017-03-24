@@ -1,0 +1,23 @@
+class Solution(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        if not len(grid):
+            return 0
+        
+        perimeter = 0
+        for row in xrange(len(grid)):
+            for col in xrange(len(grid[0])):
+                if not grid[row][col]:
+                    continue
+                if row == 0 or not grid[row-1][col]:
+                    perimeter += 1
+                if col == 0 or not grid[row][col-1]:
+                    perimeter += 1
+                if row == len(grid)-1 or not grid[row+1][col]:
+                    perimeter += 1
+                if col == len(grid[0])-1 or not grid[row][col + 1]:
+                    perimeter += 1
+        return perimeter
