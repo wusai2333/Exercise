@@ -1,0 +1,25 @@
+class Solution(object):
+    def candy(self, ratings):
+        """
+        :type ratings: List[int]
+        :rtype: int
+        """
+        if not ratings or len(ratings) == 0: return 0
+        total, prev, countDown = 1, 1, 0
+        for i in range(1, len(ratings)):
+            if ratings[i-1] <= ratings[i]:
+                if countDown > 0:
+                    total += countDown * (countDown + 1) /2
+                    if countDown >= prev:
+                        total += countDown - prev + 1
+                    countDown = 0
+                    prev = 1
+                prev = 1 if ratings[i] == ratings[i - 1] else prev + 1
+                total += prev
+            else:
+                countDown += 1
+        if countDown > 0:
+            total += countDown * (countDown + 1) / 2
+            if countDown >= prev :
+                total += countDown - prev + 1
+        return total
