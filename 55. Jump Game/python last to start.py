@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+<< << << < HEAD
+
+
 class Solution(object):
     def canJump(self, nums):
         """
@@ -6,10 +8,15 @@ class Solution(object):
         :rtype: bool
         """
         last = len(nums) - 1
-        for i in range(len(nums)-2, -1, -1):
-            if i + nums[i] >= last: last = i
+        for i in range(len(nums) - 2, -1, -1):
+            if i + nums[i] >= last:
+                last = i
         return last <= 0
-=======
+
+
+== == == =
+
+
 class Solution(object):
     def canJump(self, nums):
         """
@@ -17,8 +24,10 @@ class Solution(object):
         :rtype: bool
         """
         last = len(nums) - 1
-        for i in range(len(nums)-2, -1, -1):
-            if i + nums[i] >= last: last = i
+        for i in range(len(nums) - 2, -1, -1):
+            if i + nums[i] >= last:
+                last = i
         return last <= 0
->>>>>>> origin/master
-            
+
+
+>>>>>> > origin / master

@@ -1,0 +1,23 @@
+bool isMatch(string s, string p)
+{
+	int m = s.length(), n = p.length();
+
+	std::vector<bool> cur(m+1, false);
+	cur[0] = true;
+	for (int j = 1; j <= n; j++)
+	{
+		bool pre = cur[0];
+		cur[0] = cur[0] && p[j - 1] == '*';
+		for (int i = 1; i <= m; i++)
+		{
+			bool temp = cur[i];
+			if (p[j - 1] != '*') {
+				cur[i] = pre && (s[i - 1] == p[j - 1] || p[j - 1] == '?');
+			} else{
+				cur[i] = cur[i - 1] || cur[i];
+			}
+			pre = temp;
+		}
+	}
+	return (cur[m]);
+}
