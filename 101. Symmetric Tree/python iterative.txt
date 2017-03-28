@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -33,4 +34,41 @@ class Solution(object):
         elif right: return False
         return True
             
+=======
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root: return True
+        
+        stack = []
+        if not self.process(root.left, root.right, stack): return False
+        
+        while stack:
+            if len(stack) % 2 != 0: return False
+            right = stack.pop()
+            left = stack.pop()
+            if right.val != left.val: return False
+            if not self.process(left.left, right.right, stack): return False
+            if not self.process(left.right, right.left, stack): return False
+        return True
+            
+    def process(self, left, right, stack):
+        if left:
+            if not right: return False
+            stack.append(left)
+            stack.append(right)
+        elif right: return False
+        return True
+            
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

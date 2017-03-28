@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 int get_nest_sum(struct NestedInteger** nest_list, int size, int depth){
     if(size == 0){
         return 0;
@@ -19,4 +20,27 @@ int depthSum(struct NestedInteger** nestedList, int nestedListSize) {
     int sum = get_nest_sum(nestedList,nestedListSize, 1);
     printf("\n sum: %d \n", sum);
     return sum;
+=======
+int get_nest_sum(struct NestedInteger** nest_list, int size, int depth){
+    if(size == 0){
+        return 0;
+    }
+    int sum=0;
+    for (int i=0; i<size; i++){
+        if(NestedIntegerIsInteger(nest_list[i])){
+            sum += NestedIntegerGetInteger(nest_list[i])* depth;
+        }
+        else{
+            sum += get_nest_sum(NestedIntegerGetList(nest_list[i]), NestedIntegerGetListSize(nest_list[i]), depth+1);
+        }
+        
+    }
+    return sum;
+}
+int depthSum(struct NestedInteger** nestedList, int nestedListSize) {
+    
+    int sum = get_nest_sum(nestedList,nestedListSize, 1);
+    printf("\n sum: %d \n", sum);
+    return sum;
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

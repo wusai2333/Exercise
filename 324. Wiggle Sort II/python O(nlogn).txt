@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def wiggleSort(self, nums):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         nums.sort()
         half = len(nums[::2])
         nums[::2], nums[1::2] = nums[:half][::-1], nums[half:][::-1]
+=======
+class Solution(object):
+    def wiggleSort(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        nums.sort()
+        half = len(nums[::2])
+        nums[::2], nums[1::2] = nums[:half][::-1], nums[half:][::-1]
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

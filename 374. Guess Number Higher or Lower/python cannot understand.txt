@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # The guess API is already defined for you.
 # @param num, your guess
 # @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
@@ -10,4 +11,18 @@ class Solution(object):
         :rtype: int
         """
         class C: __getitem__ = lambda _, i : -guess(i)
+=======
+# The guess API is already defined for you.
+# @param num, your guess
+# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+# def guess(num):
+
+class Solution(object):
+    def guessNumber(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        class C: __getitem__ = lambda _, i : -guess(i)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return bisect.bisect(C(), -1, 1, n)

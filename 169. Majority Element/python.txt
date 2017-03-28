@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 class Solution(object):
     def majorityElement(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
+=======
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return sorted(nums)[len(nums)/2]

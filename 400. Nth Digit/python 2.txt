@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from math import pow
 class Solution(object):
     def findNthDigit(self, n):
@@ -15,4 +16,23 @@ class Solution(object):
             
         num += (n-1)/digit
         num = str(num)
+=======
+from math import pow
+class Solution(object):
+    def findNthDigit(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        #if n < 10 : return n
+        base, digit, num = 9, 1 ,1
+        while n - base*digit > 0:
+            n -= base*digit
+            base *= 10
+            digit += 1
+            num *= 10
+            
+        num += (n-1)/digit
+        num = str(num)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return int(num[(n-1)%digit])

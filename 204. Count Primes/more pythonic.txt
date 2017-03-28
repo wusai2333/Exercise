@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def countPrimes(self, n):
         """
@@ -12,4 +13,20 @@ class Solution(object):
             if Prime[i]:
                 Prime[i*i: n: i] = [False] * len(Prime[i*i: n: i])
         return sum(Prime)
+=======
+class Solution(object):
+    def countPrimes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 3:
+            return 0
+        Prime  = [True] * n
+        Prime[0] = Prime[1] = False
+        for i in range(2, int(n**0.5)+1):
+            if Prime[i]:
+                Prime[i*i: n: i] = [False] * len(Prime[i*i: n: i])
+        return sum(Prime)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 

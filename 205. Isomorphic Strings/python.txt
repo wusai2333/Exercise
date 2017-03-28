@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isIsomorphic(self, s, t):
         """
@@ -13,4 +14,21 @@ class Solution(object):
             else:
                 m1[ord(s[i])] = m2[ord(t[i])] = i
         return True
+=======
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        m1 = [-1]*256
+        m2 = [-1]*256
+        for i in range(len(s)):
+            if m1[ord(s[i])] != m2[ord(t[i])]:
+                return False
+            else:
+                m1[ord(s[i])] = m2[ord(t[i])] = i
+        return True
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 

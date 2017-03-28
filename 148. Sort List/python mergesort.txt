@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -42,4 +43,50 @@ class Solution(object):
         if l2 != None:
             p.next = l2
         
+=======
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def sortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head == None or head.next == None:
+            return head
+        #cut the linkedlist to two halves
+        prev, slow, fast = None, head, head
+        while fast != None and fast.next != None:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        prev.next = None
+        
+        l1 = self.sortList(head)
+        l2 = self.sortList(slow)
+        
+        return self.merge(l1, l2)
+    
+    def merge(self, l1, l2):
+        l = ListNode(0)
+        p = l
+        while l1 != None and l2 != None:
+            if l1.val < l2.val:
+                p.next = l1
+                l1 = l1.next
+            else:
+                p.next = l2
+                l2 = l2.next
+            p = p.next
+            
+        if l1 != None:
+            p.next = l1
+        if l2 != None:
+            p.next = l2
+        
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return l.next

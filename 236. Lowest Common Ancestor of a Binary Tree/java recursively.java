@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) return root;
@@ -6,3 +7,13 @@ public class Solution {
         return left == null? right: right == null? left : root;
     }
 }
+=======
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        return left == null? right: right == null? left : root;
+    }
+}
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5

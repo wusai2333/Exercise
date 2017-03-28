@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     bool isAnagram(string s, string t) {
@@ -5,4 +6,13 @@ public:
         sort(t.begin(), t.end());
         return s == t;
     }
+=======
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        return s == t;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

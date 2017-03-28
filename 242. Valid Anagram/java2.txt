@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
@@ -11,4 +12,19 @@ public class Solution {
             if(i!=0) return false;
         return true;
     }
+=======
+public class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+        int[] counts = new int[26];
+        
+        for(int i = 0; i < s.length(); i++) {
+            counts[s.charAt(i)-'a']++;
+            counts[t.charAt(i)-'a']--;
+        }
+        for(int i: counts)
+            if(i!=0) return false;
+        return true;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

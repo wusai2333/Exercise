@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def readBinaryWatch(self, num):
         """
@@ -6,4 +7,14 @@ class Solution(object):
         """
         return ['%d:%02d'% (h,m)
                 for h in range(0,12) for m in range(0,60) 
+=======
+class Solution(object):
+    def readBinaryWatch(self, num):
+        """
+        :type num: int
+        :rtype: List[str]
+        """
+        return ['%d:%02d'% (h,m)
+                for h in range(0,12) for m in range(0,60) 
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 if (bin(h) + bin(m)).count('1') == num]                

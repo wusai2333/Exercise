@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Integer.toString(int par1,int par2),par1表示要转成字符串的数字，par2表示要转成的进制表示，如：
 
 Integer.toString(22,2),表示把22转成2进制表示的字符串，
@@ -12,4 +13,20 @@ public class Solution {
     public boolean isPowerOfFour(int num) {
         return Integer.toString(num, 4).matches("10*");
     }
+=======
+Integer.toString(int par1,int par2),par1表示要转成字符串的数字，par2表示要转成的进制表示，如：
+
+Integer.toString(22,2),表示把22转成2进制表示的字符串，
+
+Integer.toString(22,10),表示把22转成10进制表示的字符串，
+
+Integer.toString(22,16),表示把22转成16进制表示的字符串，
+
+Integer.toString(22,36),表示把22转成36进制表示的字符串，即10到36之间的数字表示为a到z的表示。
+
+public class Solution {
+    public boolean isPowerOfFour(int num) {
+        return Integer.toString(num, 4).matches("10*");
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

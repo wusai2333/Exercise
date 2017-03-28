@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def firstUniqChar(self, s):
         """
@@ -6,4 +7,14 @@ class Solution(object):
         """
         letters='abcdefghijklmnopqrstuvwxyz'
         index=[s.index(l) for l in letters if s.count(l) == 1]
+=======
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        letters='abcdefghijklmnopqrstuvwxyz'
+        index=[s.index(l) for l in letters if s.count(l) == 1]
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return min(index) if len(index) > 0 else -1

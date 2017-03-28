@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def wordBreak(self, s, wordDict):
         """
@@ -24,4 +25,32 @@ class Solution(object):
                     res.append(item)
         memo[s] = res
         return res
+=======
+class Solution(object):
+    def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: Set[str]
+        :rtype: List[str]
+        """
+        return self.helper(s, wordDict, {})
+    
+    def helper(self, s, wordDict, memo):
+        if s in memo: return memo[s]
+        if not s: return []
+        
+        res = []
+        for word in wordDict:
+            if not s.startswith(word):
+                continue
+            if len(s) == len(word):
+                res.append(word)
+            else:
+                resultOfTheRest = self.helper(s[len(word):], wordDict, memo)
+                for item in resultOfTheRest:
+                    item = word + ' ' + item
+                    res.append(item)
+        memo[s] = res
+        return res
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 

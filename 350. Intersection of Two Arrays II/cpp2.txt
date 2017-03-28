@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
@@ -10,4 +11,18 @@ public:
         }
         return res;
     }
+=======
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int, int> dict;
+        vector<int> res;
+        for (int i = 0; i < nums1.size(); i++) dict[nums1[i]]++;
+        for (int i = 0; i < nums2.size(); i++) {
+            if(--dict[nums2[i]] >= 0 && dict.find(nums2[i]) != dict.end()/*判断这个元素是否在原来的dict里面*/)
+                res.push_back(nums2[i]);
+        }
+        return res;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

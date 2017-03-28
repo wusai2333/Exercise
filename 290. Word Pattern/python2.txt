@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def wordPattern(self, pattern, str):
         """
@@ -6,4 +7,14 @@ class Solution(object):
         :rtype: bool
         """
         f = lambda s: map({}.setdefault, s, range(len(s)))
+=======
+class Solution(object):
+    def wordPattern(self, pattern, str):
+        """
+        :type pattern: str
+        :type str: str
+        :rtype: bool
+        """
+        f = lambda s: map({}.setdefault, s, range(len(s)))
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return f(pattern) == f(str.split())

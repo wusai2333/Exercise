@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def intersect(self, nums1, nums2):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         """
         from collections import Counter
         c1, c2 = Counter(nums1), Counter(nums2)
+=======
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        from collections import Counter
+        c1, c2 = Counter(nums1), Counter(nums2)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return sum([[num]*min(c1[num], c2[num]) for num in c1 & c2], [])

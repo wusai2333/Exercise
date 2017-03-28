@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -40,4 +41,48 @@ public class Solution {
         return nDepth;
     }
     
+=======
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int maxDepth(TreeNode root) {
+        //dfs
+        /*if(root == null)
+            return 0;
+        int l = maxDepth(root.left);
+        int r = maxDepth(root.right);
+        return l > r? l+1: r+1;*/
+        //bfs
+        if(root == null)
+            return 0;
+        Queue<TreeNode> que = new LinkedList<>();
+        int nCount = 1;
+        int nDepth = 0;
+        
+        que.offer(root);
+        while(que.peek() != null){
+            TreeNode pTemp = que.poll();
+            nCount--;
+            
+            if(pTemp.left!=null)
+                que.offer(pTemp.left);
+            if(pTemp.right!=null)
+                que.offer(pTemp.right);
+                
+            if(nCount==0){
+                nDepth ++;
+                nCount = que.size();
+            }
+        }
+        return nDepth;
+    }
+    
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

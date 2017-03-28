@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public int longestPalindrome(String s) {
         int[] bucket = new int[58];
@@ -9,4 +10,17 @@ public class Solution {
             result += v >>> 1 << 1;
         return result == s.length()? result: result + 1;
     }
+=======
+public class Solution {
+    public int longestPalindrome(String s) {
+        int[] bucket = new int[58];
+        for (int i = 0; i < s.length(); i++) {
+            bucket[s.charAt(i)-'A']++;
+        }
+        int result = 0;
+        for(int v: bucket) 
+            result += v >>> 1 << 1;
+        return result == s.length()? result: result + 1;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

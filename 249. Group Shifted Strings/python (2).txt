@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def groupStrings(self, strings):
         """
@@ -25,4 +26,33 @@ class Solution(object):
             alist.append(s)
         else:
             alist[:] = alist[0:i] + [s] + alist[i:]
+=======
+class Solution(object):
+    def groupStrings(self, strings):
+        """
+        :type strings: List[str]
+        :rtype: List[List[str]]
+        """
+        dic={}
+        for s in strings:
+            hs = self.strHash(s)
+            if hs not in dic.keys():
+                dic[hs] = [str(s)]
+            else:
+                self.insertStr(dic[hs], s)
+        return [dic[key] for key in dic.keys()]
+        
+    def strHash(self, s):
+        hslist = [(ord(i) - ord(s[0])) % 26 for i in s]
+        return tuple(hslist)
+    
+    def insertStr(self, alist, s):
+        i = 0
+        while i < len(alist) and ord(s[0]) > ord(alist[i][0]):
+            i += 1
+        if i == len(alist):
+            alist.append(s)
+        else:
+            alist[:] = alist[0:i] + [s] + alist[i:]
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return alist

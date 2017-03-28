@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 def reverseVowels(self, s):
     vowels = re.findall('(?i)[aeiou]', s)
     return re.sub('(?i)[aeiou]', lambda m: vowels.pop(), s)
 
 
+=======
+def reverseVowels(self, s):
+    vowels = re.findall('(?i)[aeiou]', s)
+    return re.sub('(?i)[aeiou]', lambda m: vowels.pop(), s)
+
+
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 ?i 表达式不区分大小写

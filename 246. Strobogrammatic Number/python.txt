@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 class Solution(object):
     def isStrobogrammatic(self, num):
         """
         :type num: str
         :rtype: bool
         """
+=======
+class Solution(object):
+    def isStrobogrammatic(self, num):
+        """
+        :type num: str
+        :rtype: bool
+        """
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return all(num[i] + num[~i] in '696 11 00 88' for i in range(len(num)/2 + 1))

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def reverseVowels(self, s):
         """
@@ -5,4 +6,13 @@ class Solution(object):
         :rtype: str
         """
         vowels = re.findall('(?i)[aeiou]',s)
+=======
+class Solution(object):
+    def reverseVowels(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        vowels = re.findall('(?i)[aeiou]',s)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return re.sub('(?i)[aeiou]', lambda m: vowels.pop(), s)

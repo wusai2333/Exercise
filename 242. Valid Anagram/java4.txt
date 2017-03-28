@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public boolean isAnagram(String s, String t) {
         int[] charsMap = new int[26];
@@ -15,4 +16,23 @@ public class Solution {
         }
         return true;
     }
+=======
+public class Solution {
+    public boolean isAnagram(String s, String t) {
+        int[] charsMap = new int[26];
+        
+        for(char c : s.toCharArray()) {
+            int pos = c - 'a';
+            charsMap[pos]++;
+        }
+        for(char c : t.toCharArray()) {
+            int pos = c - 'a';
+            charsMap[pos]--;
+        }
+        for(int count: charsMap) {
+            if(count != 0) return false;
+        }
+        return true;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

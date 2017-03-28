@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     int addDigits(int num) {
@@ -11,4 +12,19 @@ private:
     int solution2(int num){
         return num - 9 * ((num - 1)/9);
     }
+=======
+class Solution {
+public:
+    int addDigits(int num) {
+        return solution2(num);
+        //return (num>9?addDigits(num / 10 + num % 10):num);
+    }
+private:
+    int solution1(int num){
+        return (num-1) % 9 + 1;
+    }
+    int solution2(int num){
+        return num - 9 * ((num - 1)/9);
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

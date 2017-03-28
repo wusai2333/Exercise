@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def hammingWeight(self, n):
         """
@@ -10,4 +11,18 @@ class Solution(object):
             ones += n & 1
             n = n >> 1
         return ones
+=======
+class Solution(object):
+    def hammingWeight(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        #return bin(n).count('1')
+        ones = 0
+        while n != 0:
+            ones += n & 1
+            n = n >> 1
+        return ones
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def findDisappearedNumbers(self, nums):
         """
@@ -12,4 +13,20 @@ class Solution(object):
         for i in range(n):
             if nums[i]<=n:
                 result.append(i+1)
+=======
+class Solution(object):
+    def findDisappearedNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        n = len(nums)
+        for i in range(n):
+            nums[(nums[i]-1)%n] += n
+
+        result = []
+        for i in range(n):
+            if nums[i]<=n:
+                result.append(i+1)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return result

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def wordPattern(self, pattern, str):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         """
         s = str.split()
         t = pattern
+=======
+class Solution(object):
+    def wordPattern(self, pattern, str):
+        """
+        :type pattern: str
+        :type str: str
+        :rtype: bool
+        """
+        s = str.split()
+        t = pattern
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return map(s.index, s) == map(t.find, t)

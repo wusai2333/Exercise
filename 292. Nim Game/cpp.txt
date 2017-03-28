@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     bool canWinNim(int n) {
@@ -13,4 +14,21 @@ public:
         delete[] p;
         return ret;
     }
+=======
+class Solution {
+public:
+    bool canWinNim(int n) {
+        int *p = new(nothrow) int [n];
+        if(p != nullptr) {
+            p[0] = true;
+            p[1] = true;
+            p[2] = true;
+            for (int i=3; i<n; i++)
+            p[i] = !(p[i-1] && p[i-2] && p[i-3]);
+        }
+        int ret = p[n-1];
+        delete[] p;
+        return ret;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

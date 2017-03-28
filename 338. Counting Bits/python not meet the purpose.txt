@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def countBits(self, num):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         res = []
         for i in range(0, num+1):
             res.append(bin(i).count('1'))
+=======
+class Solution(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+        """
+        res = []
+        for i in range(0, num+1):
+            res.append(bin(i).count('1'))
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return res

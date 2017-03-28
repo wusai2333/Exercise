@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isUgly(self, num):
         """
@@ -9,4 +10,17 @@ class Solution(object):
             while num % p == 0:
                  if num / p < num:
                      num = num /p
+=======
+class Solution(object):
+    def isUgly(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+        if num <= 0: return False
+        for p in [2, 3, 5]:
+            while num % p == 0:
+                 if num / p < num:
+                     num = num /p
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return num == 1

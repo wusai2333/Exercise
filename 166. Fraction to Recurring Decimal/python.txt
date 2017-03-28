@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def fractionToDecimal(self, numerator, denominator):
         """
@@ -30,4 +31,38 @@ class Solution(object):
             else:
                 dic[num] = len(res)
         return ''.join(res)
+=======
+class Solution(object):
+    def fractionToDecimal(self, numerator, denominator):
+        """
+        :type numerator: int
+        :type denominator: int
+        :rtype: str
+        """
+        if numerator == 0: return '0'
+        res = []
+        if (numerator > 0) != (denominator > 0):
+           res.append('-')
+        num, den = abs(numerator), abs(denominator)
+        #integral part
+        res.append(str(num/den))
+        num %= den
+        if num == 0: return ''.join(res)
+        #fractional part
+        res.append('.')
+        dic = {}
+        dic[num] = len(res)
+        while num != 0:
+            num *= 10
+            res.append(str(num/den))
+            num %= den
+            if num in dic.keys():
+                index = dic[num]
+                res.insert(index, '(')
+                res.append(')')
+                break
+            else:
+                dic[num] = len(res)
+        return ''.join(res)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

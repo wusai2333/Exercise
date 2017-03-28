@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from itertools import izip_longest
 class Solution(object):
     def validWordSquare(self, words):
@@ -32,4 +33,40 @@ class Solution(object):
         """
         return all( j < len(words) and i < len(words[j]) and c==words[j][i]\
                     for i, word in enumerate(words)\
+=======
+from itertools import izip_longest
+class Solution(object):
+    def validWordSquare(self, words):
+        """
+        :type words: List[str]
+        :rtype: bool
+        """
+        for i in range(len(words)):
+            for j in range(len(words[i])):
+                if j >= len(words) or len(words[j]) <= i or words[i][j] != words[j][i]:
+                    return False
+        return True
+            
+
+class Solution(object):
+    def validWordSquare(self, words):
+        """
+        :type words: List[str]
+        :rtype: bool
+        """
+        return all( j < len(words) and i < len(words[j]) and words[i][j] == words[j][i]\
+                    for i in range(len(words))\
+                    for j in range(len(words[i])))
+
+
+
+class Solution(object):
+    def validWordSquare(self, words):
+        """
+        :type words: List[str]
+        :rtype: bool
+        """
+        return all( j < len(words) and i < len(words[j]) and c==words[j][i]\
+                    for i, word in enumerate(words)\
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                     for j, c in enumerate(word))

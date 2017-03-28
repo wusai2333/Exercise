@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class TwoSum(object):
 
     def __init__(self):
@@ -30,4 +31,38 @@ class TwoSum(object):
 # Your TwoSum object will be instantiated and called as such:
 # twoSum = TwoSum()
 # twoSum.add(number)
+=======
+class TwoSum(object):
+
+    def __init__(self):
+        """
+        initialize your data structure here
+        """
+        self.table = table = {}
+
+    def add(self, number):
+        """
+        Add the number to an internal data structure.
+        :rtype: nothing
+        """
+        self.table[number] = self.table.get(number, 0) +1
+
+    def find(self, value):
+        """
+        Find if there exists any pair of numbers which sum is equal to the value.
+        :type value: int
+        :rtype: bool
+        """
+        table = self.table
+        for i in table:
+            j = value - i
+            if i == j and table.get(i)>1 or i!= j and table.get(j, 0) >0 :
+                return True
+        return False
+        
+
+# Your TwoSum object will be instantiated and called as such:
+# twoSum = TwoSum()
+# twoSum.add(number)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 # twoSum.find(value)

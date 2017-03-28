@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isPowerOfTwo(self, n):
         """
@@ -6,4 +7,14 @@ class Solution(object):
         """
         if n <= 0:
             return False
+=======
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n <= 0:
+            return False
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return bin(n).count('1') == 1

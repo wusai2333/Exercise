@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def findRepeatedDnaSequences(self, s):
         """
@@ -12,4 +13,20 @@ class Solution(object):
                 repeated.add(ten)
             else:
                 seen.add(ten)
+=======
+class Solution(object):
+    def findRepeatedDnaSequences(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        seen = set()
+        repeated = set()
+        for i in range(len(s) - 9):
+            ten = s[i: i + 10]
+            if ten in seen:
+                repeated.add(ten)
+            else:
+                seen.add(ten)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return list(repeated)

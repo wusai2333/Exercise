@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     bool isAnagram(string s, string t) {
@@ -13,4 +14,21 @@ public:
             if(count[i]) return false;
        return true;
     }
+=======
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+       if(s.length() != t.length()) return false;
+       int n = s.length();
+       
+       int count[26] = {};
+       for (int i = 0; i < n; i++) {
+           count[s[i]]++;
+           count[t[i]]--;
+       }
+       for(auto i = 0; i < 26; i++)
+            if(count[i]) return false;
+       return true;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

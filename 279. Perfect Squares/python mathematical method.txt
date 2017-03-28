@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def numSquares(self, n):
         """
@@ -22,4 +23,30 @@ class Solution(object):
         for i in range(1, sqrt_n + 1):
             if isSquare(n - i*i):
                 return 2
+=======
+class Solution(object):
+    def numSquares(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        def isSquare(n):
+            sqrt_n = int(n**0.5)
+            return sqrt_n * sqrt_n == n
+        #Based on Lagrange's Four Square theorem, there 
+        #are only 4 possible results: 1, 2, 3, 4.
+        if isSquare(n): return 1
+        # The result is 4 if and only if n can be written in the   
+        # form of 4^k*(8*m + 7). Please refer to 
+        # Legendre's three-square theorem.
+        while n & 3 == 0: # n % 4 == 0
+            n >>= 2
+        if n & 7 == 7: # n % 8 == 7
+            return 4
+        #check whether 2 is the result
+        sqrt_n = int(n**0.5)
+        for i in range(1, sqrt_n + 1):
+            if isSquare(n - i*i):
+                return 2
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return 3

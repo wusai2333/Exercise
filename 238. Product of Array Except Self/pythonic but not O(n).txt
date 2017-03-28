@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def productExceptSelf(self, nums):
         """
@@ -13,4 +14,21 @@ class Solution(object):
             res[nums.index(0)] = reduce(lambda x, y: x * y ,(x for x in nums if x))
         return res
         
+=======
+class Solution(object):
+    def productExceptSelf(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        cntZero = nums.count(0)
+        if not cntZero:
+            prod = reduce(lambda x, y: x*y, nums)
+            return [ prod/x for x in nums]
+        res = [0] * len(nums)
+        if cntZero == 1:
+            res[nums.index(0)] = reduce(lambda x, y: x * y ,(x for x in nums if x))
+        return res
+        
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

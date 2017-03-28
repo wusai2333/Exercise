@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for an interval.
 
 # class Interval(object):
@@ -55,4 +56,63 @@ class Solution(object):
 
             heap.put(interval)
 
+=======
+# Definition for an interval.
+
+# class Interval(object):
+
+#     def __init__(self, s=0, e=0):
+
+#         self.start = s
+
+#         self.end = e
+
+
+class Solution(object):
+
+    def minMeetingRooms(self, intervals):
+
+        """
+
+        :type intervals: List[Interval]
+
+        :rtype: int
+
+        """
+
+        if not intervals: return 0
+
+        # sort the intervals by the start time
+
+        intervals.sort(key = lambda i: i.start)
+
+        # use a min heap to track the minmum end time of merged intervals
+
+        heap = queue.PriorityQueue()
+
+        # start with the first meeting
+
+        heap.put((itervals[0].end, intervals[0]))
+
+        for i in range(len(intervals)):
+
+            # get the room that finished earliest
+
+            interval = heap.get()
+
+            if intervals[i].start >= interval[1].end:
+
+                #if current meeting starts right after
+
+                # there is no need for a new room, merge the intervals
+
+                interval[0] = intervals[i].end
+
+            else:
+
+                heap.put((intervals[i].end, intervals[i]))
+
+            heap.put(interval)
+
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
          return len(heap)

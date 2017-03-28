@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 /*
     The following stylesheet is only included on pages that can execute javascript
 */
 
 [component="post/content"] img:not(.not-responsive):not([data-state]) {
 	display: none !important;
+=======
+/*
+    The following stylesheet is only included on pages that can execute javascript
+*/
+
+[component="post/content"] img:not(.not-responsive):not([data-state]) {
+	display: none !important;
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

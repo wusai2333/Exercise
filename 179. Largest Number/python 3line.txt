@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution:
     # @param {integer[]} nums
     # @return {string}
@@ -5,4 +6,13 @@ class Solution:
         if not nums: return ""
         s_num = [str(x) for x in nums]
         s_num.sort(cmp = lambda x, y: cmp(y + x, x + y))
+=======
+class Solution:
+    # @param {integer[]} nums
+    # @return {string}
+    def largestNumber(self, nums):
+        if not nums: return ""
+        s_num = [str(x) for x in nums]
+        s_num.sort(cmp = lambda x, y: cmp(y + x, x + y))
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return ''.join(s_num).lstrip('0') or '0'

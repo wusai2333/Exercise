@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def removeDuplicateLetters(self, s):
         """
@@ -8,4 +9,16 @@ class Solution(object):
             suffix = s[s.index(c):]
             if set(suffix) == set(s):
                 return c + self.removeDuplicateLetters(suffix.replace(c,""))
+=======
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        for c in sorted(set(s)):
+            suffix = s[s.index(c):]
+            if set(suffix) == set(s):
+                return c + self.removeDuplicateLetters(suffix.replace(c,""))
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return ''

@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 class Solution:
     # @param n, an integer
     # @return an integer
     def reverseBits(self, n):
         oribin = '{0:032b}'.format(n)
         result = oribin[::-1]
+=======
+class Solution:
+    # @param n, an integer
+    # @return an integer
+    def reverseBits(self, n):
+        oribin = '{0:032b}'.format(n)
+        result = oribin[::-1]
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return int(result,2)

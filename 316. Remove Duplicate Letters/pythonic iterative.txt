@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def removeDuplicateLetters(self, s):
         """
@@ -10,4 +11,18 @@ class Solution(object):
             c = min(s[:i + 1]) # asc
             result += c
             s = s[s.index(c):].replace(c, '')
+=======
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        result = ''
+        while s:
+            i = min(map(s.rindex, set(s)))
+            c = min(s[:i + 1]) # asc
+            result += c
+            s = s[s.index(c):].replace(c, '')
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return result

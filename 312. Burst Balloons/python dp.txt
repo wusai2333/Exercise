@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def maxCoins(self, nums):
         """
@@ -16,4 +17,24 @@ class Solution(object):
                     dp[left][right] = max(dp[left][right], nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right])
         return dp[0][n - 1]
                 
+=======
+class Solution(object):
+    def maxCoins(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums.insert(0,1)
+        nums.append(1)
+        n = len(nums)
+        dp = [[0]*n for _ in range(n)]
+        
+        for k in range(2, n):
+            for left in range(n - k):
+                right = left + k
+                for i in range(left + 1, right):
+                    dp[left][right] = max(dp[left][right], nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right])
+        return dp[0][n - 1]
+                
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
@@ -7,4 +8,15 @@ public:
         return b.count() < 2;
         
     }
+=======
+class Solution {
+public:
+    bool canPermutePalindrome(string s) {
+        bitset<256> b;
+        for (char c:s)
+            b.flip(c);
+        return b.count() < 2;
+        
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

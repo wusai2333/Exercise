@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def minimumTotal(self, triangle):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         for i in range (len(triangle)-2, -1, -1):
             for j in range(i+1):
                 triangle[i][j] += min(triangle[i+1][j+1], triangle[i+1][j])
+=======
+class Solution(object):
+    def minimumTotal(self, triangle):
+        """
+        :type triangle: List[List[int]]
+        :rtype: int
+        """
+        for i in range (len(triangle)-2, -1, -1):
+            for j in range(i+1):
+                triangle[i][j] += min(triangle[i+1][j+1], triangle[i+1][j])
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return triangle[0][0]

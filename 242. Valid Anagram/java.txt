@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public boolean isAnagram(String s, String t) {
        int[] alpabet = new int[26];
@@ -6,4 +7,14 @@ public class Solution {
        for (int i = 0; i < 26; i++) if (alpabet[i] != 0) return false;
        return true;
     }
+=======
+public class Solution {
+    public boolean isAnagram(String s, String t) {
+       int[] alpabet = new int[26];
+       for (int i = 0; i < s.length();i++) alpabet[(int)s.charAt(i) - 'a']++;
+       for (int i = 0; i < t.length();i++) alpabet[(int)t.charAt(i) - 'a']--;
+       for (int i = 0; i < 26; i++) if (alpabet[i] != 0) return false;
+       return true;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

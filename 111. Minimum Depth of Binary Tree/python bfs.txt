@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -23,4 +24,31 @@ class Solution(object):
                 if rt.right != None:q.append(rt.right)
                 if rt.left == None and rt.right == None: return depth
         return depth
+=======
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root: return 0
+        q = collections.deque()
+        q.append(root)
+        depth = 0
+        while q:
+            depth += 1
+            width = len(q)
+            for i in range(width):
+                rt = q.popleft() 
+                if rt.left != None: q.append(rt.left)
+                if rt.right != None:q.append(rt.right)
+                if rt.left == None and rt.right == None: return depth
+        return depth
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

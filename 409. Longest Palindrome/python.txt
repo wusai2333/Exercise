@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def longestPalindrome(self, s):
         """
@@ -14,4 +15,22 @@ class Solution(object):
         :rtype: int
         """
         use = sum(v & ~1 for v in collections.Counter(s).values())
+=======
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        odds = sum(v & 1 for v in collections.Counter(s).values())
+        return len(s) - odds + (1 if odds > 0 else 0);
+
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        use = sum(v & ~1 for v in collections.Counter(s).values())
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return use + (use < len(s));

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     int islandPerimeter(vector<vector<int>>& grid) {
@@ -15,4 +16,23 @@ public:
         }
         return 4*islands - 2*neighbors;
     }
+=======
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int islands = 0;
+        int neighbors = 0;
+        
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[i].size(); j++) {
+                if (grid[i][j] == 1) {
+                    islands++;
+                    if(i != 0 && grid[i-1][j] == 1) neighbors++;
+                    if(j != 0 && grid[i][j-1] == 1) neighbors++;
+                }
+            }
+        }
+        return 4*islands - 2*neighbors;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

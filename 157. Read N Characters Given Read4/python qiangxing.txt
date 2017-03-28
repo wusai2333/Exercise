@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def read(self, buf, n):
     idx = 0
     while n > 0:
@@ -12,4 +13,20 @@ def read(self, buf, n):
             buf[idx] = buf4[i]
             idx += 1
             n -= 1
+=======
+def read(self, buf, n):
+    idx = 0
+    while n > 0:
+        # read file to buf4
+        buf4 = [""]*4
+        l = read4(buf4)
+        # if no more char in file, return
+        if not l:
+            return idx
+        # write buf4 into buf directly
+        for i in range(min(l, n)):
+            buf[idx] = buf4[i]
+            idx += 1
+            n -= 1
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
     return idx

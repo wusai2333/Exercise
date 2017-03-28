@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def validWordAbbreviation(self, word, abbr):
         """
@@ -24,4 +25,32 @@ class Solution(object):
                 j += 1
                 
             i += int(abbr[start: j])
+=======
+class Solution(object):
+    def validWordAbbreviation(self, word, abbr):
+        """
+        :type word: str
+        :type abbr: str
+        :rtype: bool
+        """
+        if not word or not abbr: return
+    
+        digits = [str(i) for i in range(10)]
+        i = 0
+        j = 0
+        
+        while i < len(word) and j < len(abbr):
+            if word[i] == abbr[j]:
+                i, j = i+1, j+1
+                continue
+            
+            if abbr[j] not in digits[1:]:
+                return False
+                
+            start = j
+            while j < len(abbr) and abbr[j] in digits :
+                j += 1
+                
+            i += int(abbr[start: j])
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return i == len(word) and j == len(abbr) 

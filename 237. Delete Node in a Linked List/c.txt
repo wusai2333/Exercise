@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -7,4 +8,15 @@
  */
 void deleteNode(struct ListNode* node) {
     *node = *node->next
+=======
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+void deleteNode(struct ListNode* node) {
+    *node = *node->next
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

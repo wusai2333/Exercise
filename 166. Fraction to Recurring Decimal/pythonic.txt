@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def fractionToDecimal(self, numerator, denominator):
         """
@@ -17,4 +18,25 @@ class Solution(object):
         idx = stack.index(remainder)
         result.insert(idx + 2, '(')
         result.append(')')
+=======
+class Solution(object):
+    def fractionToDecimal(self, numerator, denominator):
+        """
+        :type numerator: int
+        :type denominator: int
+        :rtype: str
+        """
+        if numerator == 0: return '0'
+        sign = '-' if (numerator>0) != (denominator>0) else ''
+        n, remainder = divmod(abs(numerator), abs(denominator))
+        result = [sign + str(n), '.']
+        stack = []
+        while remainder not in stack:
+            stack.append(remainder)
+            n, remainder = divmod(remainder * 10, abs(denominator))
+            result.append(str(n))
+        idx = stack.index(remainder)
+        result.insert(idx + 2, '(')
+        result.append(')')
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return ''.join(result).replace('(0)','').rstrip('.')

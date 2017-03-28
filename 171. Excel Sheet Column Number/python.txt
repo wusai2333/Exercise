@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 class Solution(object):
     def titleToNumber(self, s):
         """
         :type s: str
         :rtype: int
         """
+=======
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return reduce(lambda x, y : x*26 + y, [ord(c)-ord('A')+1 for c in list(s)])

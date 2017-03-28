@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def addDigits(self, num):
         """
@@ -12,4 +13,20 @@ class Solution(object):
                 temp += num % 10
                 num /= 10
             num = temp
+=======
+class Solution(object):
+    def addDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        '''return num if not num else(num % 9 or 9);'''
+        '''return (num - 1) % 9 + 1 if num else 0'''
+        while(num >= 10):
+            temp = 0
+            while(num > 0):
+                temp += num % 10
+                num /= 10
+            num = temp
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return num

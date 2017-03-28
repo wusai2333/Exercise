@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def numDistinct(self, s, t):
         """
@@ -29,4 +30,37 @@ We're looking for mem[i+1][j+1], which is the place for _. Currently we know tha
 
 I hope this helped.
                 
+=======
+class Solution(object):
+    def numDistinct(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: int
+        """
+        mem = [[0]*(len(s)+1) for _ in range(len(t)+1)]
+        
+        for j in range(len(s)+1):
+            mem[0][j] = 1
+        for i in range(len(t)):
+            for j in range(len(s)):
+                if s[j] == t[i]:
+                    mem[i+1][j+1] = mem[i][j] + mem[i+1][j]
+                else:
+                    mem[i+1][j+1] = mem[i+1][j]
+        return mem[len(t)][len(s)]
+
+Sure let's consider the same example as above: S = [acdabefbc], T = [ab]
+
+              *  * 
+      S = [acdabefbc]
+mem[1] = [0111222222]
+mem[2] = [00000222_ ]
+Imagine that we are filling the gap at _. That means i=1, so T[i] = b and j=7, so S[j] = b.
+
+We're looking for mem[i+1][j+1], which is the place for _. Currently we know that at this position we have 2 as before, because mem[1][7] = 2, which is the position ABOVE and LEFT to _. Also we know that sofar we had 2 subsequences before (namely AcdaBef and acdABef -- highlighted with uppercase) because mem[2][7] = 2, which is LEFT to _. So having this new b would increase the number of subsequences (currently 2) with a number of 2, because it can be matched with the 2 as we saw before. That's why if T[i] == S[j] then mem[i+1][j+1] := mem[i][j] + mem[i+1][j]. So _ will be 4.
+
+I hope this helped.
+                
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

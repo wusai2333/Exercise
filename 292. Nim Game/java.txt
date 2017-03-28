@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public boolean canWinNim(int n) {
         if(n <= 0)
@@ -7,4 +8,15 @@ public class Solution {
         res[0] = true;
         
     }
+=======
+public class Solution {
+    public boolean canWinNim(int n) {
+        if(n <= 0)
+            throw new IllegalArgumentException();
+        Boolean[] res = new Boolean[n + 1];
+        res[0] = true;
+        res[0] = true;
+        
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

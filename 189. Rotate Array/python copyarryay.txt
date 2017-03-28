@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def rotate(self, nums, k):
         """
@@ -21,4 +22,29 @@ class Solution(object):
         k %= len(nums)
         nums[:] = nums[-k:] + nums[:-k] 
         
+=======
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        if len(nums) == 0 or k <= 0:
+            return
+        numscopy = nums[:]
+        for i in range(len(nums)):
+            nums[(i+k)%len(nums)] = numscopy[i]
+
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        k %= len(nums)
+        nums[:] = nums[-k:] + nums[:-k] 
+        
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

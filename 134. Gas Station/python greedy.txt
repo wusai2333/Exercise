@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def canCompleteCircuit(self, gas, cost):
         """
@@ -26,4 +27,34 @@ Chuntaolu:
 I have the same idea as yours. My thought corresponding to your second point is:
 
 Every time a fail happens, accumulate the amount of gas that is needed to overcome the fail. After looping through the stations, if the gas left is more than gas needed, then we have a solution, otherwise not.
+=======
+class Solution(object):
+    def canCompleteCircuit(self, gas, cost):
+        """
+        :type gas: List[int]
+        :type cost: List[int]
+        :rtype: int
+        """
+        gas_left = gas_needed = start = 0
+        for i, (g, c) in enumerate(zip(gas, cost)):
+            gas_left += g - c
+            if gas_left < 0:
+                gas_needed -= gas_left
+                start = i + 1
+                gas_left = 0
+        return start if gas_left >= gas_needed else -1
+
+daxianji007:
+I have thought for a long time and got two ideas:
+
+If car starts at A and can not reach B. Any station between A and B
+can not reach B.(B is the first station that A can not reach.)
+If the total number of gas is bigger than the total number of cost. There must be a solution.
+(Should I prove them?)
+Here is my solution based on those ideas:
+Chuntaolu:
+I have the same idea as yours. My thought corresponding to your second point is:
+
+Every time a fail happens, accumulate the amount of gas that is needed to overcome the fail. After looping through the stations, if the gas left is more than gas needed, then we have a solution, otherwise not.
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 Below is the Python code:

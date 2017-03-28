@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -18,4 +19,26 @@ class Solution(object):
         """
         if root :
             return self.find_path(root, sum) + self.pathSum(root.left, sum) + self.pathSum(root.right, sum)
+=======
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def find_path(self, root, target):
+        if root:
+            return int(root.val == target) + self.find_path(root.left, target - root.val) + self.find_path(root.right, target - root.val)
+        return 0
+    def pathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: int
+        """
+        if root :
+            return self.find_path(root, sum) + self.pathSum(root.left, sum) + self.pathSum(root.right, sum)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return 0

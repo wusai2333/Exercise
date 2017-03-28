@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public boolean isAnagram(String s, String t) {
         char[] schar = s.toCharArray();
@@ -8,4 +9,16 @@ public class Solution {
         
         return Arrays.equals(schar, tchar);
     }
+=======
+public class Solution {
+    public boolean isAnagram(String s, String t) {
+        char[] schar = s.toCharArray();
+        char[] tchar = t.toCharArray();
+        
+        Arrays.sort(schar);
+        Arrays.sort(tchar);
+        
+        return Arrays.equals(schar, tchar);
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

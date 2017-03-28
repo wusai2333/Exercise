@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
 public:
     int longestPalindrome(string s) {
@@ -6,4 +7,14 @@ public:
             odds += count(s.begin(), s.end(), c) & 1;
         return s.size() - odds + (odds > 1);
     }
+=======
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        int odds = 0;
+        for (char c = 'A'; c <= 'z'; c++) 
+            odds += count(s.begin(), s.end(), c) & 1;
+        return s.size() - odds + (odds > 1);
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

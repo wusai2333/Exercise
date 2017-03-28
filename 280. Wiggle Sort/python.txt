@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def wiggleSort(self, nums):
         """
@@ -31,4 +32,39 @@ if nums[i - 1] >= nums[i], pass
 
 if nums[i - 1] < nums[i], after swap, we are sure to have wiggled nums[i - 2] < nums[i - 1] > nums[i].
 
+=======
+class Solution(object):
+    def wiggleSort(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        for i in range(len(nums)):
+            if i % 2 == 1:
+                if nums[i - 1] > nums[i]:
+                    nums[i - 1], nums[i] = nums[i], nums[i - 1]
+            elif i!=0 and nums[i - 1] < nums[i]:
+                    nums[i - 1], nums[i] = nums[i], nums[i - 1]
+
+why is this greedy solution can ensure previous sequences and coming sequences W.R.T position i wiggled?
+
+My explanation is recursive,
+
+suppose nums[0 .. i - 1] is wiggled, for position i:
+
+if i is odd, we already have, nums[i - 2] >= nums[i - 1],
+
+if nums[i - 1] <= nums[i], then we does not need to do anything, its already wiggled.
+
+if nums[i - 1] > nums[i], then we swap element at i -1 and i. Due to previous wiggled elements (nums[i - 2] >= nums[i - 1]), we know after swap the sequence is ensured to be nums[i - 2] > nums[i - 1] < nums[i], which is wiggled.
+
+similarly,
+
+if i is even, we already have, nums[i - 2] <= nums[i - 1],
+
+if nums[i - 1] >= nums[i], pass
+
+if nums[i - 1] < nums[i], after swap, we are sure to have wiggled nums[i - 2] < nums[i - 1] > nums[i].
+
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 The same recursive solution applies to all the elements in the sequence, ensuring the algo success

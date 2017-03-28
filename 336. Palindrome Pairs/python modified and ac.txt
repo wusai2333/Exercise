@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def palindromePairs(self, words):
         """
@@ -18,4 +19,26 @@ class Solution(object):
                         ret.append([wordDict[str2[::-1]], i])
         return ret
                         
+=======
+class Solution(object):
+    def palindromePairs(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[List[int]]
+        """
+        ret = []
+        if len(words) < 2: return res
+        wordDict = {word: i for i, word in enumerate(words)}
+        
+        for i, word in enumerate(words):
+            for j in range(len(word) + 1): # notice it should be j<=len(words[i])
+                str1 = word[:j]
+                str2 = word[j:]
+                if str1[::-1] in wordDict and wordDict[str1[::-1]] != i and str2 == str2[::-1]:
+                    ret.append([i, wordDict[str1[::-1]]])
+                if j != 0 and str2[::-1] in wordDict and wordDict[str2[::-1]] != i and str1 == str1[::-1]:
+                        ret.append([wordDict[str2[::-1]], i])
+        return ret
+                        
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 

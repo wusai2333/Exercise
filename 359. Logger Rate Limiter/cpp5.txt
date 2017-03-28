@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Logger {
 public:
     /** Initialize your data structure here. */
@@ -22,4 +23,30 @@ private:
  * Your Logger object will be instantiated and called as such:
  * Logger obj = new Logger();
  * bool param_1 = obj.shouldPrintMessage(timestamp,message);
+=======
+class Logger {
+public:
+    /** Initialize your data structure here. */
+    Logger() {
+        okmap.clear();
+    }
+    
+    /** Returns true if the message should be printed in the given timestamp, otherwise returns false.
+        If this method returns false, the message will not be printed.
+        The timestamp is in seconds granularity. */
+    bool shouldPrintMessage(int timestamp, string message) {
+        if (timestamp < okmap[message])
+            return false;
+        okmap[message] = timestamp + 10;
+        return true;
+    }
+private:
+    unordered_map<string, int> okmap;
+};
+
+/**
+ * Your Logger object will be instantiated and called as such:
+ * Logger obj = new Logger();
+ * bool param_1 = obj.shouldPrintMessage(timestamp,message);
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
  */

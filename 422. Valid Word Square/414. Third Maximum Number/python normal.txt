@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def thirdMax(self, nums):
         """
@@ -20,4 +21,28 @@ class Solution(object):
                 count += 1
         return small if count>=3 else large
             
+=======
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        large = mid = small = -sys.maxsize-1
+        count = 0
+        for x in nums:
+            if x == large or x == mid:
+                continue
+            if x > large:
+                large, mid, small = x, large, mid
+                count += 1
+            elif x > mid:
+                mid, small = x, mid
+                count += 1
+            elif x > small:
+                small = x
+                count += 1
+        return small if count>=3 else large
+            
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

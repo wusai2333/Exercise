@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 bool canPermutePalindrome(char* s) {
     int ctr[256] = {}, odds = 0;
     while (*s)
     odds += ++ctr[*s++] & 1 ? 1 : -1;
     return odds < 2;
     
+=======
+bool canPermutePalindrome(char* s) {
+    int ctr[256] = {}, odds = 0;
+    while (*s)
+    odds += ++ctr[*s++] & 1 ? 1 : -1;
+    return odds < 2;
+    
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

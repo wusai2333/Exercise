@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isStrobogrammatic(self, num):
         """
@@ -11,4 +12,19 @@ class Solution(object):
                 return False
             l += 1
             r -= 1
+=======
+class Solution(object):
+    def isStrobogrammatic(self, num):
+        """
+        :type num: str
+        :rtype: bool
+        """
+        dict = {"0":"0", "1":"1", "6":"9", "8":"8", "9":"6"}
+        l, r = 0 , len(num) - 1
+        while l <= r:
+            if num[l] not in dict or dict[num[l]] != num[r]:
+                return False
+            l += 1
+            r -= 1
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return True

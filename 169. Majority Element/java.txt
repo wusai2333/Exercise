@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public int majorityElement(int[] nums) {
         int major = nums[0], count = 1;
@@ -12,4 +13,20 @@ public class Solution {
         }
         return major;
     }
+=======
+public class Solution {
+    public int majorityElement(int[] nums) {
+        int major = nums[0], count = 1;
+        for(int i = 1; i < nums.length; i++) {
+            if(count == 0) {
+                count++;
+                major = nums[i];
+            }
+            else if(major == nums[i])
+                count++;
+            else count--;
+        }
+        return major;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

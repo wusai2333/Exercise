@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -17,4 +18,25 @@ public:
         }
         return root;
     }
+=======
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(root) {
+            invertTree(root -> right);
+            invertTree(root -> left);
+            std::swap(root->right, root->left);
+        }
+        return root;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 };

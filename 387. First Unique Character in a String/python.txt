@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def firstUniqChar(self, s):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         for x in s:
             if s.find(x) == s.rfind(x):
                 return s.find(x)
+=======
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        for x in s:
+            if s.find(x) == s.rfind(x):
+                return s.find(x)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return -1

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -39,4 +40,47 @@ class Solution(object):
         newHead = ListNode(0)
         newHead.next = head
         quicksort(newHead, None)
+=======
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def sortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        def partition(start, end):
+            node = start.next.next
+            pivotPrev = start.next
+            pivotPrev.next = end
+            pivotPost = pivotPrev
+            while node != end:
+                temp = node.next
+                if node.val > pivotPrev.val:
+                    node.next = pivotPost.next
+                    pivotPost.next = node
+                elif node.val < pivotPrev.val:
+                    node.next = start.next
+                    start.next = node
+                else:
+                    node.next = pivotPost.next
+                    pivotPost.next = node
+                    pivotPost = pivotPost.next
+                node = temp
+            return [pivotPrev, pivotPost]
+            
+        def quicksort(start, end):
+            if start.next != end:
+                prev, post = partition(start, end)
+                quicksort(start, prev)
+                quicksort(post, end)
+                
+        newHead = ListNode(0)
+        newHead.next = head
+        quicksort(newHead, None)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return newHead.next

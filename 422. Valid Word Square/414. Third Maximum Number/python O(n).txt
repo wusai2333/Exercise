@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def thirdMax(self, nums):
         """
@@ -9,4 +10,17 @@ class Solution(object):
             return max(nums)
         nums.remove(max(nums))
         nums.remove(max(nums))
+=======
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums = set(nums)
+        if len(nums) < 3:
+            return max(nums)
+        nums.remove(max(nums))
+        nums.remove(max(nums))
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return max(nums)

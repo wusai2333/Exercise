@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object)
     def compareVersion(self, version1, version2)
         
@@ -15,4 +16,23 @@ class Solution(object)
                 return 1
             elif v1  v2
                 return -1
+=======
+class Solution(object)
+    def compareVersion(self, version1, version2)
+        
+        type version1 str
+        type version2 str
+        rtype int
+        
+        l1 = version1.split('.')
+        l2 = version2.split('.')
+        mlen = max(len(l1), len(l2))
+        for i in range(mlen)
+            v1 = int(l1[i]) if ilen(l1) else 0
+            v2 = int(l2[i])if ilen(l2) else 0
+            if v1  v2
+                return 1
+            elif v1  v2
+                return -1
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return 0

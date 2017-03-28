@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def groupStrings(self, strings):
         """
@@ -6,4 +7,14 @@ class Solution(object):
         """
         key = lambda s: [(ord(c) - ord(s[0])) % 26 for c in s]
         return [list(g) for _, g in itertools.groupby(sorted(strings, key = key),key)]
+=======
+class Solution(object):
+    def groupStrings(self, strings):
+        """
+        :type strings: List[str]
+        :rtype: List[List[str]]
+        """
+        key = lambda s: [(ord(c) - ord(s[0])) % 26 for c in s]
+        return [list(g) for _, g in itertools.groupby(sorted(strings, key = key),key)]
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isHappy(self, n):
         """
@@ -11,4 +12,19 @@ class Solution(object):
                 return False
             else:
                 mem.add(n)
+=======
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        mem = set()
+        while n != 1:
+            n = sum([int(i)**2  for i in str(n)])
+            if n in mem:
+                return False
+            else:
+                mem.add(n)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return True

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def removeDuplicateLetters(self, s):
         """
@@ -50,4 +51,58 @@ class Solution(object):
             result += c
             isVisited[ord(c)] = True
         return result
+=======
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        cnts = collections.defaultdict(int)
+        ret = ''
+        stack = []
+        isVisited = [False] * 26
+        for c in s: cnts[c] += 1
+        for i in range(len(s)):
+            cnts[s[i]] -= 1
+            if isVisited[ord(s[i]) - ord('a')] or stack and stack[-1] == s[i]: continue
+            while stack and stack[-1] > s[i] and cnts[stack[-1]] > 0:
+                isVisited[ord(stack[-1]) - ord('a')] = False
+                stack.pop()
+            stack.append(s[i])
+            isVisited[ord(s[i]) - ord('a')] = True
+
+            
+        while stack:
+            ret += stack.pop()
+        return ret[::-1]
+
+Here is the explaination.
+
+the core idea is to keep the stack.
+and the stack is used to keep the current minimal char. if the next char is less than the top of stack ,then the top should be poped unless the top can not be poped.
+when can't we pop the top of stack ? the char is the last time to be seen in the raw string, then we can't pop it.(that's the power of cnts which can be implemented in vector~ less time maybe.)
+
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        cnts = [0] * 256
+        for c in s:
+            cnts[ord(c)] += 1
+        isVisited = [False] * 256
+        result = ''
+        for c in s:
+            cnts[ord(c)] -= 1
+            if isVisited[ord(c)]: continue
+            
+            while result and result[-1] > c and cnts[ord(result[-1])] > 0:
+                isVisited[ord(result[-1])] = False
+                result = result[:-1]
+            result += c
+            isVisited[ord(c)] = True
+        return result
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 

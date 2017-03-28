@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def removeDuplicateLetters(self, s):
         """
@@ -13,4 +14,21 @@ class Solution(object):
                 while c < result[-1:] and i < rindex[result[-1]]:
                     result = result[:-1]
                 result += c
+=======
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        rindex = {c: i for i, c in enumerate(s)}
+        result = ''
+        for i, c in enumerate(s):
+            if c not in result:
+                # 这里用切片是因为当result为空时，result的切片返回空字符 而不是list index out of range.
+                # Null is smaller than all other characters.
+                while c < result[-1:] and i < rindex[result[-1]]:
+                    result = result[:-1]
+                result += c
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return result

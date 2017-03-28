@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public boolean canPermutePalindrome(String s) {
         BitSet set = new BitSet();
@@ -5,4 +6,13 @@ public class Solution {
             set.flip((int)s.charAt(i));
         return set.cardinality() < 2;
     }
+=======
+public class Solution {
+    public boolean canPermutePalindrome(String s) {
+        BitSet set = new BitSet();
+        for (int i=0; i < s.length(); i++)
+            set.flip((int)s.charAt(i));
+        return set.cardinality() < 2;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

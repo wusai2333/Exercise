@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def isPalindrome(self, s):
         """
@@ -14,4 +15,22 @@ class Solution(object):
                 return False
             l += 1
             r -= 1
+=======
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        l, r = 0, len(s) - 1
+        while l < r:
+            while l < r and s[l].isalnum():
+                l += 1
+            while r > l and s[r].isalnum():
+                r -= 1
+            if s[l].upper() != s[r]. upper():
+                return False
+            l += 1
+            r -= 1
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return True

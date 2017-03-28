@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def convertToTitle(self, n):
         """
@@ -17,4 +18,25 @@ class Solution(object):
         """
         return "" if n == 0 else self.convertToTitle((n-1)/26) + chr((n-1)%26 + ord('A'))
             
+=======
+class Solution(object):
+    def convertToTitle(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        if n <= 0: return""
+        else:
+            l = n % 26 if n % 26 != 0 else 26
+            return self.convertToTitle((n-l)/26) + str(chr(l + ord('A') -1)) 
+
+class Solution(object):
+    def convertToTitle(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        return "" if n == 0 else self.convertToTitle((n-1)/26) + chr((n-1)%26 + ord('A'))
+            
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

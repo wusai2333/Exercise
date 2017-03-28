@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public List<String> generatePossibleNextMoves(String s) {
        List list = new ArrayList();
@@ -6,4 +7,14 @@ public class Solution {
        }
        return list;
     }
+=======
+public class Solution {
+    public List<String> generatePossibleNextMoves(String s) {
+       List list = new ArrayList();
+       for (int i=-1; (i = s.indexOf("++", i+1)) >= 0; ){
+           list.add(s.substring(0,i) + "--" + s.substring(i+2));
+       }
+       return list;
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }

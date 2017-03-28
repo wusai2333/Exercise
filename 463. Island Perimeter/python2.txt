@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def islandPerimeter(self, grid):
         """
@@ -7,4 +8,15 @@ class Solution(object):
         return sum(((x == 0 or grid[y][x-1] ==0) +
                 (x == len(grid[0])-1 or grid[y][x+1] == 0) +
                 (y == 0 or grid[y-1][x] == 0) +
+=======
+class Solution(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        return sum(((x == 0 or grid[y][x-1] ==0) +
+                (x == len(grid[0])-1 or grid[y][x+1] == 0) +
+                (y == 0 or grid[y-1][x] == 0) +
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
                 (y == len(grid)-1 or grid[y+1][x] == 0)) for y in range(len(grid)) for x in range(len(grid[0])) if grid[y][x])

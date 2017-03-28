@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 The basic idea is to find out the smallest result letter by letter (one letter at a time). Here is the thinking process for input "cbacdcbc":
 
 1.find out the last appeared position for each letter;
@@ -54,4 +55,62 @@ class Solution(object):
         return ''.join(result)
         
         
+=======
+The basic idea is to find out the smallest result letter by letter (one letter at a time). Here is the thinking process for input "cbacdcbc":
+
+1.find out the last appeared position for each letter;
+	c - 7
+	b - 6
+	a - 2
+	d - 4
+2.find out the smallest index from the map in step 1 (a - 2);
+3.the first letter in the final result must be the smallest letter from index 0 to index 2;
+4.repeat step 2 to 3 to find out remaining letters.
+  the smallest letter from index 0 to index 2: a
+  the smallest letter from index 3 to index 4: c
+  the smallest letter from index 4 to index 4: d
+  the smallest letter from index 5 to index 6: b
+so the result is "acdb"
+
+Notes:
+
+  after one letter is determined in step 3, it need to be removed from the "last appeared position map", and the same letter should be ignored in the following steps
+  in step 3, the beginning index of the search range should be the index of previous determined letter plus one
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        def findMinLastPos(lastPosMap):
+            if not lastPosMap: return -1
+            minLastPos = sys.maxsize
+            for lastPos in lastPosMap.itervalues():
+                minLastPos = min(minLastPos, lastPos)
+            return minLastPos
+            
+        if len(s) <= 1: return s
+        lastPosMap = {}
+        for i in range(len(s)):
+            lastPosMap[s[i]] = i
+        n = len(lastPosMap)    
+        result = []
+        begin, end = 0, findMinLastPos(lastPosMap)
+        
+        for i in range(n):
+            minChar = chr(ord('z') + 1)
+            for k in range(begin, end + 1):
+                if s[k] in lastPosMap and ord(s[k]) < ord(minChar):
+                    minChar = s[k]
+                    begin = k + 1
+        
+            result.append(minChar)
+            if len(result) == n: break
+            del lastPosMap[minChar]
+            if s[end] == minChar: end = findMinLastPos(lastPosMap)
+        
+        return ''.join(result)
+        
+        
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         

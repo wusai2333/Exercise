@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -20,4 +21,28 @@ class Solution:
                 queue.append((node.left, ls + str(node.val) +"->"))
             if node.right:
                 queue.append((node.right, ls + str(node.val) +"->"))
+=======
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    # @param {TreeNode} root
+    # @return {string[]}
+    def binaryTreePaths(self, root):
+        if root == None: return[]
+        
+        ans, queue = [], collections.deque([(root,"")])
+        while queue:
+            node, ls = queue.popleft()
+            if not node.left and not node.right:
+                ans.append(ls+str(node.val))
+            if node.left:
+                queue.append((node.left, ls + str(node.val) +"->"))
+            if node.right:
+                queue.append((node.right, ls + str(node.val) +"->"))
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
         return ans

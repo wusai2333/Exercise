@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def rob(self, nums):
         """
@@ -12,4 +13,20 @@ class Solution(object):
             else:
                 b = max(a, b+nums[i])
         return max(a,b)
+=======
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        a = b = 0
+        if len(nums) == 0: return 0
+        for i in range(len(nums)):
+            if i % 2 == 0:
+                a = max(a+nums[i], b)
+            else:
+                b = max(a, b+nums[i])
+        return max(a,b)
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
             

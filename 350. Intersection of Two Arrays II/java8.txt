@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
        Map<Integer, Long> map = Arrays.stream(nums2).boxed().collect(Collectors.groupingBy(e->e, Collectors.counting()));
@@ -8,4 +9,16 @@ public class Solution {
         return true;
     }).toArray();
     }
+=======
+public class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+       Map<Integer, Long> map = Arrays.stream(nums2).boxed().collect(Collectors.groupingBy(e->e, Collectors.counting()));
+        return Arrays.stream(nums1).filter(e ->{
+        if(!map.containsKey(e)) return false;
+        map.put(e, map.get(e) - 1);
+        if(map.get(e) == 0) map.remove(e);
+        return true;
+    }).toArray();
+    }
+>>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
 }
