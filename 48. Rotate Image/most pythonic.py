@@ -1,16 +1,16 @@
-<<<<<<< HEAD
 class Solution(object):
     def rotate(self, matrix):
         """
         :type matrix: List[List[int]]
         :rtype: void Do not return anything, modify matrix in-place instead.
         """
-=======
+        matrix[:] = zip(*matrix[::-1])
+
+Clean pythonic:
 class Solution(object):
     def rotate(self, matrix):
         """
         :type matrix: List[List[int]]
         :rtype: void Do not return anything, modify matrix in-place instead.
         """
->>>>>>> origin/master
-        matrix[:] = [[row[i] for row in matrix[::-1]] for i in range(len(matrix))]
+        matrix[:] = map(list, zip(*matrix[::-1]))
