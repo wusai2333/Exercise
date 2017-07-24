@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+1.Iterative
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -6,15 +6,20 @@
 #         self.next = None
 
 class Solution(object):
-    def deleteDuplicates(self, head):
+    def reverseList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        if head == None or head.next == None:
-            return head
-        head.next = self.deleteDuplicates(head.next)
-=======
+        prev = None
+        while head:
+            curr = head
+            head = head.next
+            curr.next = prev
+            prev = curr
+        return prev
+
+2.Recursive
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -22,13 +27,16 @@ class Solution(object):
 #         self.next = None
 
 class Solution(object):
-    def deleteDuplicates(self, head):
+    def reverseList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        if head == None or head.next == None:
-            return head
-        head.next = self.deleteDuplicates(head.next)
->>>>>>> eb4f20642d79ed3df07dab1830859263475bf5e5
-        return head.next if head.next.val == head.val else head
+        return self.reverse(head)
+        
+    def reverse(self, node, prev = None):
+        if not node:
+            return prev
+        n = node.next
+        node.next = prev
+        return self.reverse(n, node)

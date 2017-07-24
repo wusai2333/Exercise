@@ -1,6 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
-
+/** O(n) time solution */
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || k <= 0) {
