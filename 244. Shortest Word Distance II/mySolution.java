@@ -2,38 +2,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WordDistance {
-    public String[] words;
-    public Map<String, Integer> pos;
+    public Map<String, List<Integer>> map;
     public WordDistance(String[] words) {
-        this.words = words;
-        pos = new HashMap<>();
+        map = new HashMap<>();
+        for(int i = 0; i < words.length; i ++) {
+            if (map.containsKey(words[i])) {
+                map.get(words[i]).add(i);
+            } else {
+                map.put(words[i], new ArrayList<Integer>(Arrays.asList(i)));
+            }
+        }
     }
     
     public int shortest(String word1, String word2) {
-        if (words == null) return -1;
-        int p1 = -1, p2 = -1, min = Integer.MAX_VALUE;//words.length();
-        if (pos.containsKey(word1)) {
-            p1 = pos.get(word1);
-        }
-        if (pos.containsKey(word2)) {
-            p2 = pos.get(word2);
-        }
-        if (p1 == -1 && p2 == -1) {
-            for (int i = 0; i < words.length; i++) {
-
-                if (words[i].equals(word1)) {
-                    p1 = i;
-                    pos.put(word1, p1);
-                }else if(words[i].equals(word2)) {
-                    p2 = i;
-                    pos.put(word2, p2);
-                }
-                if (p2 != -1 && p1 != -1) {
-                    min = Math.min(min, Math.abs(p1 - p2));
-                }
+        List<Integer> p1s = map.get(word1);
+        List<Integer> p2s = map.get(word2);
+        int min = Integer.MAX_VALUE;
+        for (int p1 : p1s) {
+            for (int p2: p2s) {
+                min = Math.min(min, Math.abs(p1 - p2));
             }
         }
-        return Math.min(min, Math.abs(p1 - p2));
+        return min;
     }
 }
 
