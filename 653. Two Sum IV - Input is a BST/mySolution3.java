@@ -5,7 +5,7 @@ public class Solution {
 
     private boolean dfs(TreeNode root, TreeNode cur, int k) {
         if (cur == null) return false;
-        return search(root, cur, k - cur.val) || search(root, cur.left, k) || search(root, cur.right, k);
+        return search(root, cur, k - cur.val) || dfs(root, cur.left, k) || dfs(root, cur.right, k);
     }
 
     private boolean search(TreeNode root, TreeNode cur, int value) {
