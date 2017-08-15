@@ -1,11 +1,11 @@
 public class Solution {
     public void dfs(int[][] M, boolean[] visited, int i) {
         for (int j = 0; j < M.length; j ++) {
-            if (M[i][j] == 1 && visited[i] = false) {
-                visited[j] = true;
+            if (M[i][j] == 1 && visited[i] == false) {
+                visited[i] = true;
                 dfs(M, visited, j);
             }
-        }
+        } 
     }
 
     public int findCircleNum(int[][] M) {
