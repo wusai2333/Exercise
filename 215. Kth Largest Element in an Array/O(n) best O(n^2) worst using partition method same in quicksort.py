@@ -12,7 +12,7 @@ def findKthLargest(self, nums, k):
     return nums[k]
 
 def partition(self, nums, lo, hi):
-    i, j = lo, hi
+    i, j = lo, hi+1
     while True:
         i += 1
         while i < hi and nums[i] < nums[lo]:
