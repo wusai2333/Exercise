@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 import java.util.Set;
-// This solution gets a stackOverFlow error;
+// This solution gets a "Time Limit Exceed";
 class Solution {
     public List<String> wordBreak(String s, List<String> wordDict) {
         Set<String> wordSet = new HashSet<>(wordDict);
@@ -17,7 +17,7 @@ class Solution {
                     res.add(last);
                 } else {
                     String remain = s.substring(0, i);
-                    List<String> remainList = wordBreak(s, wordDict);
+                    List<String> remainList = wordBreak(remain, wordDict);
                     if (remainList != null) {
                         for (String item: remainList) {
                             res.add(item + " " + last);
