@@ -16,7 +16,7 @@ class Solution {
             res.add("");
             return res;
         }
-        for (String word: wordDict) {
+        for (String word: wordDict) { // The wordDict maybe large so it may not be efficient.
             if (s.startsWith(word)) {
                 List<String> subList = DFS(s.substring(word.length()), wordDict, map);
                 for (String sub: subList) 
