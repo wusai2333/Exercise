@@ -24,6 +24,6 @@ class Solution {
             }
         }
         map.put(s, res);
-        returm res;
+        return res;
     }
 }
