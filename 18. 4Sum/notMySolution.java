@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        ArrayList<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length < 4) return res;
         int len = nums.length;
 
@@ -57,11 +57,13 @@ class Solution {
         while (start < end) {
             if (nums[start] + nums[end] == target) {
                 res.add(Arrays.asList(z1, z2, nums[start], nums[end]));
+                while (start < end && nums[start + 1] == nums[start]) start++;
+                while (start < end && nums[end - 1] == nums[end]) end--;
+                start++; end--;
+                if (start >= end) return;
             }
-            while (start < end && nums[start + 1] == nums[start]) start ++;
-            while (start < end && nums[end - 1] == nums[end]) end --;
             if (nums[start] + nums[end] < target) start++;
-            else end --;
+            else if (nums[start] + nums[end] > target) end--;
         }
     }
 }
