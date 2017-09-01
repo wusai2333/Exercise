@@ -1,21 +1,20 @@
 class Solution {
     public int findIntegers(int num) {
-        int count = 0;
-        for (int i = 0; i <= num; i++) {
-            if (!isConsecutive(i)) count++;
+        StringBuilder sb = new StringBuilder(Integer.toBinaryString(num)).reverse();
+        int n = sb.length();
+        
+        int[] a = new int[n];
+        int[] b = new int[n];
+        a[0] = b[0] = 1;
+        for (int i = 1; i < n; i++) {
+            a[i] = a[i - 1] + b[i - 1];
+            b[i] = a[i - 1];
         }
-        return count;
-    }
-
-    private boolean isConsecutive(int num) {
-        int prev = -1;
-        int remainder;
-        while (num >= 1) {
-            remainder = number % 2;
-            if (remainder == prev) return false;
-            num >>= 1;
-            prev = remainder;
+        int result = a[n - 1] + b[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            if (sb.charAt(i) == '1' && sb.charAt(i+1) == '1') break;
+            if (sb.charAt(i) == '0' && sb.charAt(i+1) == '0') result -= b[i];
         }
-        return false;
+        return result;
     }
 }
