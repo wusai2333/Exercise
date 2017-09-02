@@ -9,23 +9,23 @@
  * }
  */
 class Solution {
-    int maxSize = 1;
     public int largestBSTSubtree(TreeNode root) {
         if (root == null) return 0;
-        isBST(root);
-        return maxSize;
+        if (root.left == null && root.right == null) return 1;
+        if (isValid(root, null, null)) return countNode(root);
+        return Math.max(largestBSTSubtree(root.left), largestBSTSubtree(root.right));
+    }
+    
+    private boolean isValid(TreeNode root, Integer min, Integer max) {
+        if (root == null) return true;
+        if (min != null && min >= root.val) return false;
+        if (max != null && max <= root.val) return false;
+        return isValid(root.left, min, root.val) && isValid(root.right, root.val, max);
     }
 
-    private int isBST(TreeNode root) {
+    private int countNode(TreeNode root) {
+        if (root == null) return 0;
         if (root.left == null && root.right == null) return 1;
-        int size = 1;
-        if (root.left != null && root.left.val < root.val) {
-            size += isBST(root.left);
-        }
-        if (root.right != null && root.right.val > root.val) {
-            size += isBST(root.right);
-        }
-        if (size > maxSize) maxSize = size;
-        return size;
+        return 1 + countNode(root.left) + countNode(root.right);
     }
 }
