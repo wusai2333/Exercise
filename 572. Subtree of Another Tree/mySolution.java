@@ -9,8 +9,7 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode s, TreeNode t) {
-        if (s == null && t == null) return true;
-        if (s == null || t == null) return false;
+        if (s == null) return false;
         if (check(s, t)) return true;
         return isSubtree(s.left, t) || isSubtree(s.right, t);
     }
