@@ -8,7 +8,7 @@ class Solution {
             int n = l_stack.peek().val + r_stack.peek().val;
             if (n == k) {
                 return true;
-            } else (n > k) {
+            } else if (n > k) {
                 stackNext(r_stack, false);
             } else {
                 stackNext(l_stack, true);
