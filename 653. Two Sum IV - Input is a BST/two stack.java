@@ -6,9 +6,9 @@ class Solution {
         stackAdd(r_stack, root, false);
         while (l_stack.peek() != r_stack.peek()) {
             int n = l_stack.peek().val + r_stack.peek().val;
-            if (n == k) {
+            if (n == target) {
                 return true;
-            } else if (n > k) {
+            } else if (n > target) {
                 stackNext(r_stack, false);
             } else {
                 stackNext(l_stack, true);
