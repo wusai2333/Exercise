@@ -4,7 +4,7 @@ class Solution {
         Stack<TreeNode> r_stack = new Stack<TreeNode>();
         stackAdd(l_stack, root, true);
         stackAdd(r_stack, root, false);
-        while (l_stack.peek() != r_stack) {
+        while (l_stack.peek() != r_stack.peek()) {
             int n = l_stack.peek().val + r_stack.peek().val;
             if (n == k) {
                 return true;
