@@ -19,3 +19,9 @@ class Solution {
         return len;
     }
 }
+/**
+ * This kind of question always need a hashTable and two pointers :
+ * longest substring without reapeating characters, 
+ * minimum window substring,
+ * substring with concatenation of all words.
+ */
